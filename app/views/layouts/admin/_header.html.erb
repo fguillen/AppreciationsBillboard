@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>PlatformStatusObserver (admin) <%= "| #{yield(:title)}" if content_for?(:title) %></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/public/favicon.ico">
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<!-- bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- application -->
+<%= stylesheet_link_tag "/assets/app/shared/application.css", :media => "all" %>
+<%= stylesheet_link_tag "/assets/app/admin/css/admin.css", :media => "all" %>
+<%= javascript_include_tag "/assets/vendor/rails/jquery_ujs.js" %>
+
+<script>
+   window.App = {};
+</script>
+<%= javascript_include_tag "application" %>
+
+<%= csrf_meta_tag %>
+<%= yield(:head) %>
