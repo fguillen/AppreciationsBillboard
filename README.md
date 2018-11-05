@@ -1,4 +1,4 @@
-# RailsSkeleton Monitor
+# RailsSkeleton
 
 To create a new Rails Application using
 the "Dalia Standard":

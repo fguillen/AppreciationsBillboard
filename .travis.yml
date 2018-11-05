@@ -1,9 +1,25 @@
 language: ruby
 
+rvm:
+  - 2.5.1
+
 services:
   - mysql
 
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+
+dist: trusty
+
+sudo: required
+
 before_script:
+  - sudo mysql_upgrade
+  - sudo service mysql restart
   - RAILS_ENV=test bundle exec rake db:create db:schema:load
 
 notifications:
