@@ -16,6 +16,14 @@ that need that standard Dalia boilerplate.
   - Replace occurrences of RailsSkeleton with your app name, in this example MyNewAwesomeDaliaAPP
   - `$ bin/setup` VERY IMPORTANT, will create your database and load the schema
 
+#### Deploying
+
+  - ACTIVATE DEVOPS:
+  - Whitelist the new app domain in the Google Developer Console
+    (don't forget the `.pizza` domain).
+
+This step is necessary for the *Login with google* feature.
+
 ### Adding something to the Skeleton
 
 Keep in mind that this project
