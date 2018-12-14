@@ -5,21 +5,39 @@ test:
   google_auth:
     client_id: "GOOGLE_CLIENT_ID"
     client_secret: "<%= ENV['DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET'] %>"
+  smtp:
+    enabled: false
 development:
   host: http://railsskeleton.daliaresearch.com.pizza
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV['DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET'] %>"
+  smtp:
+    enabled: false
 staging:
   host: http://railsskeleton.staging.daliaresearch.com
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV['DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET'] %>"
+  smtp:
+    enabled: true
+    server: smtp.sendgrid.net
+    port: 587
+    domain: railsskeleton.staging.daliaresearch.com
+    user: apikey
+    pass: "<%= ENV.fetch('DALIA_SECRET_SMTP_PASS') %>"
 production:
   host: http://railsskeleton.daliaresearch.com
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV['DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET'] %>"
+  smtp:
+    enabled: true
+    server: smtp.sendgrid.net
+    port: 587
+    domain: railsskeleton.daliaresearch.com
+    user: apikey
+    pass: "<%= ENV.fetch('DALIA_SECRET_SMTP_PASS') %>"

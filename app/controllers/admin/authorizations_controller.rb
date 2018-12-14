@@ -25,7 +25,7 @@ class Admin::AuthorizationsController < Admin::AdminController
   end
 
   def failure
-    flash[:notice] = "Sorry, You din't authorize"
+    flash[:alert] = "You haven't authorized your Google account."
     redirect_to root_url
   end
 
