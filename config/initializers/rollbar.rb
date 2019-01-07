@@ -3,7 +3,7 @@ Rollbar.configure do |config|
   # Without configuration, Rollbar is enabled in all environments.
   # To disable in specific environments, set config.enabled=false.
 
-  config.access_token = ENV['DALIA_SECRET_ROLLBAR_TOKEN']
+  config.access_token = ENV.fetch('DALIA_SECRET_ROLLBAR_TOKEN')
 
   # Here we'll disable in 'test':
   if Rails.env.test? or Rails.env.development? or Rails.env.staging?

@@ -3,14 +3,14 @@ test:
   encoding: utf8
   database: railsskeleton_test
   username: root
-  password: <%= ENV['DALIA_SECRET_RAILS_DB_PASSWORD'] %>
+  password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
 
 development:
   adapter: mysql2
   encoding: utf8
   database: railsskeleton_development
   username: root
-  password: <%= ENV['DALIA_SECRET_RAILS_DB_PASSWORD'] %>
+  password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
 
 staging:
   adapter: mysql2
@@ -19,7 +19,7 @@ staging:
   port: 3306
   database: railsskeleton
   username: daliaapp
-  password: <%= ENV['DALIA_SECRET_RAILS_DB_PASSWORD'] %>
+  password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
 
 production:
   adapter: mysql2
@@ -28,4 +28,4 @@ production:
   port: 3306
   database: railsskeleton
   username: daliaapp
-  password: <%= ENV['DALIA_SECRET_RAILS_DB_PASSWORD'] %>
+  password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>

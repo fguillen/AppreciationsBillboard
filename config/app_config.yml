@@ -4,7 +4,7 @@ test:
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "GOOGLE_CLIENT_ID"
-    client_secret: "<%= ENV['DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET'] %>"
+    client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
   smtp:
     enabled: false
 development:
@@ -12,7 +12,7 @@ development:
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
-    client_secret: "<%= ENV['DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET'] %>"
+    client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
   smtp:
     enabled: false
 staging:
@@ -20,7 +20,7 @@ staging:
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
-    client_secret: "<%= ENV['DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET'] %>"
+    client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
   smtp:
     enabled: true
     server: smtp.sendgrid.net
@@ -33,7 +33,7 @@ production:
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
-    client_secret: "<%= ENV['DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET'] %>"
+    client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
   smtp:
     enabled: true
     server: smtp.sendgrid.net
