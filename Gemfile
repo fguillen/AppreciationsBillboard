@@ -33,7 +33,7 @@ group :test do
   gem 'minitest'
   gem 'mocha'
   gem 'rails-controller-testing'
-  gem 'simplecov'
+  gem 'simplecov', :require => false
 end
 
 group :development, :test do
