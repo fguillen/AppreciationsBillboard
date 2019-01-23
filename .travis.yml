@@ -1,5 +1,12 @@
 language: ruby
 
+env:
+  global:
+    # CodeClimate : INI
+    - COVERAGE=true
+    - secure: "GZAwjdTPkR9xvB4S5ViSucC4ZAw4QHrZXZkJ5di2keNK13v1CndeE3FLSP1pdgpDD8IWjyPOmLbf8hAIGcmU15aaJGb4W/ye5aksG/kDKZ43YXXL5wLoXz7aXcxyNWc01n46BeNyGQMa3wyc4+T+5npb9nhGIKC0g96rCKwlihHfWQMa5wQdV18hqZ3dxNFLV9biSz7kofntmCEgqHZ39+CTQWiQLpWQymy2Rv8pDecSzdEw1HkoExhZ2ohZ9solzsqpJba6RSne0Ral/IhddvBX0xvDYREl1N4M0hY7GyYAO7k/huZTVvUU2Vo6XrJ5P2dpRyeYd3GYMJ5wf2TceQqaevqCYz9G28kGnJh2rs8SmRR3mzz8R2IGyUZ00sCUTamdHStMqldFpYohoLbgR922Zi9fLNbMg71qJRtYuCW3k2B4LDwhroO/5YolC7fxvst4N40Y0C1pUZ+iWxut57gv8HGAijHT+4oPZwthYV0lNLhfC+RPuqQ94JKonowExengMJLU4g7OOtRMlVy3lJN6JugM3pr3LUHt6Fi96kjYtkoIHfiJKQimB5z0iLxJmdo5ftHJou7L1aq9glhEv4Yxe6XNEtyJSNB8FLIAL99F1PrzPCo17vMtYHxebKx7+K8NUAyg/onxd90FlzJXcmMtr/E9vuFKJUx6e6Xf0lU="
+    # CodeClimate : END
+
 rvm:
   - 2.5.1
 
@@ -21,6 +28,17 @@ before_script:
   - sudo mysql_upgrade
   - sudo service mysql restart
   - RAILS_ENV=test bundle exec rake db:create db:schema:load
+
+  # CodeClimate : INI
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  # CodeClimate : END
+
+after_script:
+  # CodeClimate : INI
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  # CodeClimate : END
 
 notifications:
   email:
