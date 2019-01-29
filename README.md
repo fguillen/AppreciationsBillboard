@@ -16,6 +16,12 @@ that need that standard Dalia boilerplate.
   - Replace occurrences of RailsSkeleton with your app name, in this example MyNewAwesomeDaliaAPP
   - `$ bin/setup` VERY IMPORTANT, will create your database and load the schema
 
+#### Set up CodeClimate
+
+Follow the instructions here to customize the configuration and to activate CodeClimate:
+
+- https://asktheteam.daliaresearch.com/t/how-can-i-set-up-codeclimate-in-a-ruby-project/117
+
 #### Deploying
 
   - ACTIVATE DEVOPS:
