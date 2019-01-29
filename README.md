@@ -11,7 +11,7 @@ that need that standard Dalia boilerplate.
   - `$ mkdir MyNewAwesomeDaliaAPP`
   - `$ cd MyNewAwesomeDaliaAPP`
   - `$ git init`
-  - `$ git remote add skeleton git@github.com:DaliaResearch/RailsSkeleton.git`
+  - `$ git remote add skeleton git@github.com:DaliaResearch/RailsSkeleton.git
   - `$ git pull skeleton master`
   - Replace occurrences of RailsSkeleton with your app name, in this example MyNewAwesomeDaliaAPP
   - `$ bin/setup` VERY IMPORTANT, will create your database and load the schema

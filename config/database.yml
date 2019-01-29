@@ -1,14 +1,14 @@
 test:
   adapter: mysql2
   encoding: utf8
-  database: railsskeleton_test
+  database: dalia_railsskeleton_test
   username: root
   password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
 
 development:
   adapter: mysql2
   encoding: utf8
-  database: railsskeleton_development
+  database: dalia_railsskeleton_development
   username: root
   password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
 
