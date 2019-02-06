@@ -1,0 +1,10 @@
+common: &default_settings
+  license_key: 4f82d7f27f17840c2a0038ef7a56a3fe5405878a
+development:
+  agent_enabled: false
+staging:
+  agent_enabled: false
+production:
+  <<: *default_settings
+  app_name: "RailsSkeleton"
+  log_level: info

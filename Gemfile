@@ -26,6 +26,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'uuid'
 gem 'virtus'
 gem 'virtus-relations'
+gem "newrelic_rpm"
 
 group :test do
   gem 'database_cleaner'
