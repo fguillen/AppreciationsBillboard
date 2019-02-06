@@ -33,15 +33,15 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
   def test_create_invalid
     AdminUser.any_instance.stubs(:valid?).returns(false)
     post(
-        :create,
-        :params => {
-            :admin_user => {
-                :name => "Admin Wadus",
-                :email => "email@email.com",
-                :password => "password",
-                :password_confirmation => "password"
-            }
+      :create,
+      :params => {
+        :admin_user => {
+          :name => "Admin Wadus",
+          :email => "email@email.com",
+          :password => "password",
+          :password_confirmation => "password"
         }
+      }
     )
     assert_template "new"
     assert_not_nil(flash[:alert])
@@ -49,15 +49,15 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
 
   def test_create_valid
     post(
-        :create,
-        :params => {
-            :admin_user => {
-                :name => "Admin Wadus",
-                :email => "email@email.com",
-                :password => "password",
-                :password_confirmation => "password"
-            }
+      :create,
+      :params => {
+        :admin_user => {
+          :name => "Admin Wadus",
+          :email => "email@email.com",
+          :password => "password",
+          :password_confirmation => "password"
         }
+      }
     )
 
     admin_user = AdminUser.last
@@ -92,10 +92,10 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
     put(
       :update,
       :params => {
-          :id => admin_user,
-          :admin_user => {
-              :name => "Other Name"
-          }
+        :id => admin_user,
+        :admin_user => {
+          :name => "Other Name"
+        }
       }
     )
 
@@ -133,11 +133,11 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
     put(
       :reset_password_submit,
       :params => {
-          :reset_password_code => admin_user.perishable_token,
-          :admin_user => {
-              :password => "password",
-              :password_confirmation => "password"
-          }
+        :reset_password_code => admin_user.perishable_token,
+        :admin_user => {
+          :password => "password",
+          :password_confirmation => "password"
+        }
       }
     )
 
