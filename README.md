@@ -8,13 +8,29 @@ that need that standard Dalia boilerplate.
 
 ### Creating a new App
 
-  - `$ mkdir MyNewAwesomeDaliaAPP`
-  - `$ cd MyNewAwesomeDaliaAPP`
-  - `$ git init`
-  - `$ git remote add skeleton git@github.com:DaliaResearch/RailsSkeleton.git
-  - `$ git pull skeleton master`
-  - Replace occurrences of RailsSkeleton with your app name, in this example MyNewAwesomeDaliaAPP
-  - `$ bin/setup` VERY IMPORTANT, will create your database and load the schema
+Clone and renaming:
+
+    mkdir MyNewAwesomeDaliaApp
+    cd MyNewAwesomeDaliaApp
+    git init
+    git remote add skeleton git@github.com:DaliaResearch/RailsSkeleton.git
+    git pull skeleton master
+
+    # Install gsed if needed
+    command -v gsed
+    if [ $? -ne 0 ]
+    then
+      brew install gnu-sed
+    fi
+
+    find ./ -type f -exec gsed -i 's/RailsSkeleton/MyNewAwesomeDaliaApp/' {} \;
+    find ./ -type f -exec gsed -i 's/railsskeleton/mynewawesomedaliaapp/' {} \;
+    git add .
+    git commit -m "Renaming Project"
+
+Settig up App:
+
+    bin/setup
 
 #### Set up CodeClimate
 
@@ -40,7 +56,7 @@ If one changes something in this project
 the "based on this" apps can benefit from
 those changes using:
 
-  - `$ cd MyNewAwesomeDaliaAPP`
+  - `$ cd MyNewAwesomeDaliaApp`
   - `$ git fetch skeleton`
   - `$ git merge skeleton/master`
 
