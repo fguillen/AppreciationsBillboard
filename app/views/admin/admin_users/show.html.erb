@@ -1,15 +1,17 @@
 <% title (t "views.admin_users.show.title", :admin_user_name => @admin_user.name) %>
 
-<ol class="breadcrumb">
-  <li><%= link_to (t "layouts.breadcrumbs.admin_users"), :admin_admin_users %></li>
-  <li class="active"><%= @admin_user.name %></li>
-</ol>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to (t "layouts.breadcrumbs.admin_users"), :admin_admin_users %></li>
+    <li class="breadcrumb-item active"><%= @admin_user.name %></li>
+  </ol>
+</nav>
 
-<dl class="dl-horizontal">
-  <dt><%= t "activerecord.attributes.admin_user.id" %></dt><dd><%= @admin_user.id %></dd>
-  <dt><%= t "activerecord.attributes.admin_user.uuid" %></dt><dd><%= @admin_user.uuid %></dd>
-  <dt><%= t "activerecord.attributes.admin_user.name" %></dt><dd><%= @admin_user.name %></dd>
-  <dt><%= t "activerecord.attributes.admin_user.email" %></dt><dd><%= @admin_user.email %></dd>
+<dl class="row">
+  <dt class="col-sm-2 text-right"><%= t "activerecord.attributes.admin_user.id" %></dt><dd class="col-sm-10"><%= @admin_user.id %></dd>
+  <dt class="col-sm-2 text-right"><%= t "activerecord.attributes.admin_user.uuid" %></dt><dd class="col-sm-10"><%= @admin_user.uuid %></dd>
+  <dt class="col-sm-2 text-right"><%= t "activerecord.attributes.admin_user.name" %></dt><dd class="col-sm-10"><%= @admin_user.name %></dd>
+  <dt class="col-sm-2 text-right"><%= t "activerecord.attributes.admin_user.email" %></dt><dd class="col-sm-10"><%= @admin_user.email %></dd>
 </dl>
 
 <div class="controls text-right">

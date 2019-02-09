@@ -6,7 +6,7 @@ module ApplicationHelper
     return "no-active"
   end
 
-  def twitterized_type(type)
+  def bootstrap_alert_class(type)
     case type
       when :alert
         "alert alert-danger"

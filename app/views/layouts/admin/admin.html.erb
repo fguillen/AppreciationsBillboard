@@ -16,7 +16,7 @@
 
       <div id="content">
         <% flash.each do |type, message| %>
-          <%= content_tag :div, BlueCloth.new(message).to_html.html_safe, :id => "flash_#{type}", :class => twitterized_type(type.to_sym) %>
+          <%= content_tag :div, BlueCloth.new(message).to_html.html_safe, :id => "flash_#{type}", :class => bootstrap_alert_class(type.to_sym) %>
         <% end %>
 
         <%= yield %>

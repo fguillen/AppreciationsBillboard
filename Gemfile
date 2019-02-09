@@ -7,9 +7,9 @@ end
 
 # Please: keep the gem declarations sorted.
 #   This will make future mergings MUCH easier. <3
+gem "newrelic_rpm"
 gem 'authlogic'
 gem 'bluecloth'
-gem 'bootstrap', '~> 4.1.1'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
@@ -26,7 +26,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'uuid'
 gem 'virtus'
 gem 'virtus-relations'
-gem "newrelic_rpm"
 
 group :test do
   gem 'database_cleaner'
