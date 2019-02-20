@@ -16,11 +16,11 @@ services:
 addons:
   apt:
     sources:
-      - mysql-5.7-trusty
+      - mysql-5.7-bionic
     packages:
       - mysql-server
 
-dist: trusty
+dist: bionic
 
 sudo: required
 
