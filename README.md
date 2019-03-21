@@ -16,15 +16,7 @@ Clone and renaming:
     git remote add skeleton git@github.com:DaliaResearch/RailsSkeleton.git
     git pull skeleton master
 
-    # Install gsed if needed
-    command -v gsed
-    if [ $? -ne 0 ]
-    then
-      brew install gnu-sed
-    fi
-
-    find ./ -type f -exec gsed -i 's/RailsSkeleton/MyNewAwesomeDaliaApp/' {} \;
-    find ./ -type f -exec gsed -i 's/railsskeleton/mynewawesomedaliaapp/' {} \;
+    rake railsskeleton:utils:renaming_project[MyNewAwesomeDaliaApp]
     git add .
     git commit -m "Renaming Project"
 
