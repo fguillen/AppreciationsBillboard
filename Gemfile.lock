@@ -85,6 +85,8 @@ GEM
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
+    data_migrate (5.3.2)
+      rails (>= 4.2)
     database_cleaner (1.7.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -287,6 +289,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   chromedriver-helper
+  data_migrate
   database_cleaner
   dotenv-rails
   factory_bot

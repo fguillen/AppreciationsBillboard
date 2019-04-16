@@ -11,6 +11,7 @@ end
 gem "newrelic_rpm"
 gem 'authlogic'
 gem 'bluecloth'
+gem 'data_migrate'
 gem 'dotenv-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
