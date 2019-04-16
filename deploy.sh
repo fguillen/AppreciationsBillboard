@@ -32,6 +32,19 @@ git mv .elasticbeanstalk/config.$environment.yml .elasticbeanstalk/config.yml
 git mv .ebextensions_extra/00_instance.$environment.config .ebextensions/00_instance.config
 git mv .ebextensions_extra/06_envvars.$environment.config .ebextensions/06_envvars.config
 git mv .ebextensions_extra/04_datadog.$environment.config .ebextensions/04_datadog.config
+
+if [ -f .ebextensions_extra/07_migrations.$sub_environment.config ]; then
+  git mv .ebextensions_extra/07_migrations.$sub_environment.config  .ebextensions/07_migrations.config
+fi
+
+if [ -f .ebextensions_extra/09_filebeat.$environment.config ]; then
+  git mv .ebextensions_extra/09_filebeat.$environment.config  .ebextensions/09_filebeat.config
+fi
+
+if [ -f .ebextensions_extra/12_newrelic.$environment.config ]; then
+  git mv .ebextensions_extra/12_newrelic.$environment.config  .ebextensions/12_newrelic.config
+fi
+
 git commit -m "Preparing to commit to deploy branch"
 
 #
