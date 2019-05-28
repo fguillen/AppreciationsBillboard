@@ -50,7 +50,7 @@ app=$(git remote -v |\
   tr '[:upper:]' '[:lower:]')
 commit_id=$(git log -n1 --format="%h")
 actual_branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD)
-
+environment_name=$(eb list | grep -F "*" | sed "s/\\* //")
 
 #
 # deploy branch
@@ -66,74 +66,67 @@ git checkout -b deploy
 git rm --ignore-unmatch .elasticbeanstalk/config.yml
 
 
-if [ -f ".ebextensions_extra/config.${environment}.yml" ]; then
+test -f ".ebextensions_extra/config.${environment}.yml" && \
   git mv ".elasticbeanstalk/config.${environment}.yml" .elasticbeanstalk/config.yml
-fi
 
-if [ -f ".ebextensions_extra/00_instance.${environment}.config" ]; then
+test -f ".ebextensions_extra/00_instance.${environment}.config" && \
   git mv ".ebextensions_extra/00_instance.${environment}.config" .ebextensions/00_instance.config
-fi
 
-if [ -f ".ebextensions_extra/06_envvars.${environment}.config" ]; then
+test -f ".ebextensions_extra/06_envvars.${environment}.config" && \
   git mv ".ebextensions_extra/06_envvars.${environment}.config" .ebextensions/06_envvars.config
-fi
 
-if [ -f ".ebextensions_extra/07_migrations.$sub_environment.config" ]; then
-  git mv ".ebextensions_extra/07_migrations.$sub_environment.config" .ebextensions/07_migrations.config
-fi
-
-if [ -f ".ebextensions_extra/09_filebeat.${environment}.config" ]; then
-  git mv ".ebextensions_extra/09_filebeat.${environment}.config"  .ebextensions/09_filebeat.config
-fi
-
-if [ -f ".ebextensions_extra/12_newrelic.${environment}.config" ]; then
-  git mv ".ebextensions_extra/12_newrelic.${environment}.config"  .ebextensions/12_newrelic.config
-fi
-
-
-
-git commit -m "Preparing to commit to deploy branch"
-
-environment_name=$(eb list | grep -F "*" | sed "s/\\* //")
-
-if [[ $(git branch --list "${sub_environment}") ]]; then
-    git branch -D "${sub_environment}"
-  fi
-git checkout -b "${sub_environment}"
-
-
-
-if [ -f "06_envvars_extra.${sub_environment}.config" ]; then
+test -f ".ebextensions_extra/06_envvars_extra.${sub_environment}.config" && \
   git mv ".ebextensions_extra/06_envvars_extra.${sub_environment}.config" .ebextensions/06_envvars_extra.config
-fi
+
+test -f ".ebextensions_extra/07_migrations.${sub_environment}.config" && \
+  git mv ".ebextensions_extra/07_migrations.${sub_environment}.config" .ebextensions/07_migrations.config
+
+test -f ".ebextensions_extra/09_filebeat.${environment}.config" && \
+  git mv ".ebextensions_extra/09_filebeat.${environment}.config"  .ebextensions/09_filebeat.config
+
+test -f ".ebextensions_extra/12_newrelic.${environment}.config" && \
+  git mv ".ebextensions_extra/12_newrelic.${environment}.config"  .ebextensions/12_newrelic.config
+
 
 
 case $sub_environment in
   web*)
     # preparing web config
-    git mv ".ebextensions_extra/01_load_balancer.${environment}.config" .ebextensions/01_load_balancer.config
-    git commit -m "Preparing to commit to web branch"
+    test -f ".ebextensions_extra/01_load_balancer.${environment}.config" && \
+      git mv ".ebextensions_extra/01_load_balancer.${environment}.config" .ebextensions/01_load_balancer.config
+
     ;;
 
   cronjobs*)
     # preparing cronjobs config
     git rm --ignore-unmatch .ebextensions/10_threshold.config
-    git mv "cron.${environment}.yaml" cron.yaml
-    git commit -m "Preparing to commit to cronjobs branch"
+    test -f "cron.${environment}.yaml" && \
+      git mv "cron.${environment}.yaml" cron.yaml
+
     ;;
 
   activejobs*)
     # preparing activejobs config
-    git mv ".ebextensions_extra/30_queue_url_for_activejobs_enviroment.${environment}.config" .ebextensions/
+    test -f ".ebextensions_extra/30_queue_url_for_activejobs_enviroment.${environment}.config" && \
+      git mv ".ebextensions_extra/30_queue_url_for_activejobs_enviroment.${environment}.config" .ebextensions/
+
     git rm --ignore-unmatch cron.staging.yaml
     git rm --ignore-unmatch cron.production.yaml
-    git commit -m "Preparing to commit to activejobs branch"
+
+    ;;
+
+  getoffers*)
+    # preparing getoffers config
+    test -f ".ebextensions_extra/01_load_balancer.${environment}.config" && \
+      git mv ".ebextensions_extra/01_load_balancer.${environment}.config" .ebextensions/01_load_balancer.config
+
     ;;
 
   dev*)
     # preparing dev config
-    git mv ".ebextensions_extra/01_load_balancer.${environment}.config" .ebextensions/01_load_balancer.config
-    git commit -m "Preparing to commit to dev branch"
+    test -f ".ebextensions_extra/01_load_balancer.${environment}.config" && \
+      git mv ".ebextensions_extra/01_load_balancer.${environment}.config" .ebextensions/01_load_balancer.config
+
     ;;
 
   *)
@@ -142,20 +135,9 @@ case $sub_environment in
 esac
 
 
-# Deploy phase
+git commit -m "Comitting Deployment for ${environment} - ${sub_environment}"
 
-git checkout deploy
-git branch -D "$sub_environment"
-
-
-# create environment if it doesn't exist
-# deploy if it exists
-if ! [[ "${environment_name}" ]]; then
-  environment_name="${app}-${environment}-${sub_environment}"
-  eb create --cfg "${environment_name}" "${environment_name}"
-else
-  eb deploy --timeout 100 --label "${commit_id}-${environment_name}"
-fi
+eb deploy --timeout 100 --label "${commit_id}-${environment_name}"
 
 #
 # Clean garbage
