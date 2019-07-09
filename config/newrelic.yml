@@ -1,10 +1,16 @@
-common: &default_settings
-  license_key: 4f82d7f27f17840c2a0038ef7a56a3fe5405878a
 development:
-  agent_enabled: false
+  app_name: RailsSkeleton (Development)
+  monitor_mode: false
+
+test:
+  app_name: RailsSkeleton (Test)
+  monitor_mode: false
+
 staging:
-  agent_enabled: false
+  app_name: RailsSkeleton (Staging)
+  monitor_mode: false
+
 production:
-  <<: *default_settings
-  app_name: "RailsSkeleton"
-  log_level: info
+  app_name: RailsSkeleton
+  rules.ignore_url_regexes: ["^/health"]
+  distributed_tracing.enabled: true
