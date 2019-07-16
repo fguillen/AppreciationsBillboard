@@ -24,6 +24,10 @@ dist: bionic
 
 sudo: required
 
+before_install:
+  - gem update --system
+  - gem install bundler
+
 before_script:
   - sudo mysql_upgrade
   - sudo service mysql restart
