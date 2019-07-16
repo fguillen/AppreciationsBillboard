@@ -27,23 +27,30 @@ fi
 
 git checkout -b deploy
 
+
 git rm --ignore-unmatch .elasticbeanstalk/config.yml
+
+test -f ".elasticbeanstalk/config.$environment.yml " && \
 git mv .elasticbeanstalk/config.$environment.yml .elasticbeanstalk/config.yml
+
+test -f ".ebextensions_extra/00_instance.$environment.config" && \
 git mv .ebextensions_extra/00_instance.$environment.config .ebextensions/00_instance.config
+
+
+test -f ".ebextensions_extra/06_envvars.$environment.config" && \
 git mv .ebextensions_extra/06_envvars.$environment.config .ebextensions/06_envvars.config
-git mv .ebextensions_extra/04_datadog.$environment.config .ebextensions/04_datadog.config
 
-if [ -f .ebextensions_extra/07_migrations.$sub_environment.config ]; then
+test -f ".ebextensions_extra/07_migrations.$sub_environment.config" && \
   git mv .ebextensions_extra/07_migrations.$sub_environment.config  .ebextensions/07_migrations.config
-fi
 
-if [ -f .ebextensions_extra/09_filebeat.$environment.config ]; then
+
+test -f ".ebextensions_extra/09_filebeat.$environment.config" && \
   git mv .ebextensions_extra/09_filebeat.$environment.config  .ebextensions/09_filebeat.config
-fi
 
-if [ -f .ebextensions_extra/12_newrelic.$environment.config ]; then
+
+test -f ".ebextensions_extra/12_newrelic.$environment.config" && \
   git mv .ebextensions_extra/12_newrelic.$environment.config  .ebextensions/12_newrelic.config
-fi
+
 
 git commit -m "Preparing to commit to deploy branch"
 
