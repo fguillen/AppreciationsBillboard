@@ -30,7 +30,7 @@ git checkout -b deploy
 
 git rm --ignore-unmatch .elasticbeanstalk/config.yml
 
-test -f ".elasticbeanstalk/config.$environment.yml " && \
+test -f ".elasticbeanstalk/config.$environment.yml" && \
 git mv .elasticbeanstalk/config.$environment.yml .elasticbeanstalk/config.yml
 
 test -f ".ebextensions_extra/00_instance.$environment.config" && \
