@@ -1,4 +1,5 @@
 language: ruby
+cache: bundler
 
 env:
   global:
@@ -8,10 +9,11 @@ env:
     # CodeClimate : END
 
 rvm:
-  - 2.5.1
+  - 2.6.3
 
 services:
   - mysql
+  - mongodb
 
 addons:
   apt:
@@ -38,6 +40,11 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
   # CodeClimate : END
+
+script:
+  - bundle exec bundle audit
+  - bundle exec brakeman -A
+  - bundle exec rails test
 
 after_script:
   # CodeClimate : INI

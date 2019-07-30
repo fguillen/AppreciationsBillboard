@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '2.6.3'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -8,14 +8,17 @@ end
 
 # Please: keep the gem declarations sorted.
 #   This will make future mergings MUCH easier. <3
-gem "newrelic_rpm"
-gem 'authlogic'
+gem 'authlogic', '~> 4' # Authlogic 5 password authentication is completely broken (as of 5.0.2)
 gem 'bluecloth'
+gem 'bootsnap', require: false
 gem 'data_migrate'
 gem 'dotenv-rails'
+gem 'fast_blank'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
+gem "newrelic_rpm"
+gem 'oj'
 gem 'omniauth'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'puma', '~> 3.11'
@@ -41,13 +44,15 @@ end
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
-  gem 'chromedriver-helper'
   gem 'selenium-webdriver'
   gem 'timecop'
+  gem 'webdrivers'
 end
 
 group :development do
   gem 'awesome_print'
+  gem 'brakeman'
+  gem 'bundle-audit'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_04_06_140445) do
 
-  create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "uuid", null: false
     t.string "name", null: false
     t.string "email", null: false
@@ -24,14 +24,14 @@ ActiveRecord::Schema.define(version: 2018_04_06_140445) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "authorizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "authorizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
     t.bigint "admin_user_id"
     t.index ["admin_user_id"], name: "index_authorizations_on_admin_user_id"
   end
 
-  create_table "sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
     t.datetime "created_at", null: false
