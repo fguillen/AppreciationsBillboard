@@ -30,6 +30,14 @@ Follow the instructions here to customize the configuration and to activate Code
 
 - https://asktheteam.daliaresearch.com/t/how-can-i-set-up-codeclimate-in-a-ruby-project/117
 
+#### Set up NewRelic
+
+https://asktheteam.daliaresearch.com/t/how-to-setup-newrelic-in-my-rails-sinatra-app/269
+
+#### Set up Rollbar
+
+https://asktheteam.daliaresearch.com/t/how-to-add-a-new-app-to-rollbar/375
+
 #### Deploying
 
   - ACTIVATE DEVOPS:
