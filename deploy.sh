@@ -52,6 +52,10 @@ test -f ".ebextensions_extra/12_newrelic.$environment.config" && \
   git mv .ebextensions_extra/12_newrelic.$environment.config  .ebextensions/12_newrelic.config
 
 
+if [ -f .ebextensions_extra/04_collectd.$environment.config ]; then
+  git mv .ebextensions_extra/04_collectd.$environment.config  .ebextensions/04_collectd.config
+fi
+
 git commit -m "Preparing to commit to deploy branch"
 
 #
