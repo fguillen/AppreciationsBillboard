@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :admin_user do
     sequence(:name) { |n| "AdminUser Name #{n}" }
     sequence(:email) { |n| "email#{n}@email.com" }
-    password { "password" }
-    password_confirmation { "password" }
+    password { "Password!" }
+    password_confirmation { "Password!" }
   end
 
   factory :authorization do

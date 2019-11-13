@@ -38,8 +38,8 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
         :admin_user => {
           :name => "Admin Wadus",
           :email => "email@email.com",
-          :password => "password",
-          :password_confirmation => "password"
+          :password => "Password!",
+          :password_confirmation => "Password!"
         }
       }
     )
@@ -54,8 +54,8 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
         :admin_user => {
           :name => "Admin Wadus",
           :email => "email@email.com",
-          :password => "password",
-          :password_confirmation => "password"
+          :password => "Password!",
+          :password_confirmation => "Password!"
         }
       }
     )
@@ -135,8 +135,8 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
       :params => {
         :reset_password_code => admin_user.perishable_token,
         :admin_user => {
-          :password => "password",
-          :password_confirmation => "password"
+          :password => "Password!",
+          :password_confirmation => "Password!"
         }
       }
     )

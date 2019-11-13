@@ -339,7 +339,7 @@ DEPENDENCIES
   omniauth
   omniauth-google-oauth2 (~> 0.4.1)
   puma (~> 3.11)
-  rails (~> 5.2.0)
+  rails (~> 5.2.2)
   rails-controller-testing
   rollbar
   ruby_regex!

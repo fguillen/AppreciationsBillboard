@@ -1,4 +1,6 @@
 class AdminUser < ApplicationRecord
+  validates_with AdminPasswordValidator
+
   include HasUuid
 
   has_many :authorizations, :dependent => :destroy
