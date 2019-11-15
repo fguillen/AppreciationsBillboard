@@ -7,6 +7,13 @@ test:
     client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
   smtp:
     enabled: false
+  api:
+    admin_token:
+      - TEST_ADMIN_TOKEN_1
+      - TEST_ADMIN_TOKEN_2
+    token:
+      - TEST_TOKEN_1
+      - TEST_TOKEN_2
 development:
   host: http://railsskeleton.daliaresearch.com.pizza
   admin_email: it@daliaresearch.com
@@ -15,6 +22,13 @@ development:
     client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
   smtp:
     enabled: false
+  api:
+    admin_token:
+      - ADMIN_TOKEN_1
+      - ADMIN_TOKEN_2
+    token:
+      - TOKEN_1
+      - TOKEN_2
 staging:
   host: http://railsskeleton.staging.daliaresearch.com
   admin_email: it@daliaresearch.com
@@ -28,6 +42,11 @@ staging:
     domain: railsskeleton.staging.daliaresearch.com
     user: apikey
     pass: "<%= ENV.fetch('DALIA_SECRET_SMTP_PASS') %>"
+  api:
+    admin_token:
+      - "<%= ENV.fetch('DALIA_SECRET_API_ADMIN_TOKEN') %>"
+    token:
+      - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
 production:
   host: http://railsskeleton.daliaresearch.com
   admin_email: it@daliaresearch.com
@@ -41,3 +60,8 @@ production:
     domain: railsskeleton.daliaresearch.com
     user: apikey
     pass: "<%= ENV.fetch('DALIA_SECRET_SMTP_PASS') %>"
+  api:
+    admin_token:
+      - "<%= ENV.fetch('DALIA_SECRET_API_ADMIN_TOKEN') %>"
+    token:
+      - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"

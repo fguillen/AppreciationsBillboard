@@ -1,0 +1,114 @@
+# Admin User
+
+Using this endpoints you can view, create and delete admin users.
+
+## Admin Users [/api/admin/admin_users]
+
+### Index [GET]
+Lists Admin Users
+
+Example:
+
+```bash
+curl https://railsskeleton.daliaresearch.com/api/admin/admin_users \
+     -H 'Authorization: Dalia FAKE_ADMIN_TOKEN'
+```
+
++ Response 200
+  + Attributes (array[AdminUser])
+
+### Show [GET /api/admin/admin_users/{admin_user_uuid}]
+Displays Admin User data for given UUID
+
+Example:
+
+```bash
+curl https://railsskeleton.daliaresearch.com/api/admin/admin_users/91fb9777-daa9-4b4e-94c9-1673b941875c \
+     -H 'Authorization: Dalia FAKE_ADMIN_TOKEN'
+```
+
++ Parameters
+  + `admin_user_uuid`: `91fb9777-daa9-4b4e-94c9-1673b941875c` (string) UUID of Admin User
+
++ Response 200
+  + Attributes (AdminUser)
+
+### Create [POST]
+Creates Admin User
+Example:
+
+```bash
+curl -X POST \
+  https://railsskeleton.daliaresearch.com/api/admin/admin_users \
+  -H 'Authorization: Dalia FAKE_ADMIN_TOKEN' \
+  -H 'Content-Type: application/json' \
+  --data '{"admin_user":{"email":"joeadmin@daliaresearch.com","name":"Joe Admin","password":"p4sswORd!","password_confirmation":"p4sswORd!"}}'
+```
+
++ Request (application/json)
+  + Body
+
+            {
+              "admin_user": {
+                "email": "joeadmin@daliaresearch.com",
+                "name": "Joe Admin",
+                "password": "p4sswORd!",
+                "password_confirmation": "p4sswORd!"
+              }
+            }
+
++ Response 201
+
++ Response 422 (application/json; charset=utf-8)
+  + Attributes (ResponseErrors)
+
+### Update [PATCH /api/admin/admin_users/{admin_user_uuid}]
+Updates Admin User
+Example:
+
+```bash
+curl -X PATCH \
+  https://railsskeleton.daliaresearch.com/api/admin/admin_users/91fb9777-daa9-4b4e-94c9-1673b941875c \
+  -H 'Authorization: Dalia FAKE_ADMIN_TOKEN' \
+  -H 'Content-Type: application/json' \
+  --data '{"admin_user":{"email":"joeadmin@daliaresearch.com","name":"Joe Admin","password":"p4sswORd!","password_confirmation":"p4sswORd!"}}'
+```
+
++ Parameters
+  + `admin_user_uuid`: `91fb9777-daa9-4b4e-94c9-1673b941875c` (string) UUID of Admin User
+
++ Request (application/json)
+  + Body
+
+            {
+              "admin_user": {
+                "email": "joeadmin@daliaresearch.com",
+                "name": "Joe Admin",
+                "password": "p4sswORd!",
+                "password_confirmation": "p4sswORd!"
+              }
+            }
+
++ Response 200
+  + Attributes (AdminUser)
+
++ Response 422 (application/json; charset=utf-8)
+  + Attributes (ResponseErrors)
+
+### Destroy [DELETE /api/admin/admin_users/{admin_user_uuid}]
+Delete Admin User per given email OR uuid. If both given, UUID takes precedence.
+
+Example
+
+```bash
+curl -X DELETE https://railsskeleton.daliaresearch.com/api/admin/admin_users/91fb9777-daa9-4b4e-94c9-1673b941875c \
+     -H 'Authorization: Dalia FAKE_ADMIN_TOKEN'
+```
+
++ Parameters
+  + `admin_user_uuid`: `91fb9777-daa9-4b4e-94c9-1673b941875c` (string, optional) UUID of Admin User
+
++ Response 204
+
++ Response 422 (application/json; charset=utf-8)
+  + Attributes (ResponseErrors)

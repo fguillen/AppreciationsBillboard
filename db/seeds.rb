@@ -1,4 +1,4 @@
-password = "password"
+password = "p4sswORd"
 email = "admin@example.com"
 
 AdminUser.create!(

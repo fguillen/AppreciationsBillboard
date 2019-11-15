@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     resources :admin_users
   end
 
+  namespace :api do
+    namespace :admin do
+      resources :admin_users, :only => [:index, :show, :create, :update, :destroy], :param => :uuid
+    end
+  end
+
   get '/auth/:provider/callback' => 'admin/authorizations#create'
   get '/auth/failure' => 'admin/authorizations#failure'
   get '/auth/:provider' => 'admin/authorizations#blank'
