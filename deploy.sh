@@ -33,9 +33,11 @@ git rm --ignore-unmatch .elasticbeanstalk/config.yml
 test -f ".elasticbeanstalk/config.$environment.yml" && \
 git mv .elasticbeanstalk/config.$environment.yml .elasticbeanstalk/config.yml
 
-test -f ".ebextensions_extra/00_instance.$environment.config" && \
-git mv .ebextensions_extra/00_instance.$environment.config .ebextensions/00_instance.config
-
+if [ -f .ebextensions_extra/00_instance."$environment"."$sub_environment".config ]; then
+  git mv .ebextensions_extra/00_instance."$environment"."$sub_environment".config .ebextensions/00_instance.config
+else
+  git mv .ebextensions_extra/00_instance."$environment".config .ebextensions/00_instance.config
+fi
 
 test -f ".ebextensions_extra/06_envvars.$environment.config" && \
 git mv .ebextensions_extra/06_envvars.$environment.config .ebextensions/06_envvars.config
