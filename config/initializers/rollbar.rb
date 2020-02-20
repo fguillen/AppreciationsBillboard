@@ -5,8 +5,8 @@ Rollbar.configure do |config|
 
   config.access_token = ENV.fetch('DALIA_SECRET_ROLLBAR_TOKEN')
 
-  # Here we'll disable in 'test':
-  if Rails.env.test? or Rails.env.development? or Rails.env.staging?
+  # Here we'll disable in 'test' and 'development':
+  if Rails.env.test? || Rails.env.development?
     config.enabled = false
   end
 
