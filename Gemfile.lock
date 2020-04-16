@@ -1,4 +1,10 @@
 GIT
+  remote: https://github.com/DaliaResearch/MiniGraphite.git
+  revision: f6a8c246efa1ed9ae5cf05a8363bda936890cdfe
+  specs:
+    mini_graphite (0.3.9)
+
+GIT
   remote: https://github.com/fguillen/ruby_regex.git
   revision: 4a6b332da007aeb252465fd2a1697d6ca324bc63
   specs:
@@ -331,6 +337,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  mini_graphite!
   minitest
   mocha
   mysql2 (>= 0.3.18, < 0.6.0)

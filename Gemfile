@@ -16,6 +16,7 @@ gem 'dotenv-rails'
 gem 'fast_blank'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem "mini_graphite", :git => "https://github.com/DaliaResearch/MiniGraphite.git"
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 gem "newrelic_rpm"
 gem 'oj'

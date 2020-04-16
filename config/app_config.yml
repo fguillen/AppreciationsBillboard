@@ -5,6 +5,9 @@ test:
   google_auth:
     client_id: "GOOGLE_CLIENT_ID"
     client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
+  mini_graphite:
+    mock_mode: true
+    debug_mode:
   smtp:
     enabled: false
   api:
@@ -20,6 +23,9 @@ development:
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
+  mini_graphite:
+    mock_mode: true
+    debug_mode: true
   smtp:
     enabled: false
   api:
@@ -35,6 +41,13 @@ staging:
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
+  mini_graphite:
+    graphite_host: 10.0.128.44
+    graphite_port: 2003
+    statsd_host: 10.0.128.44
+    statsd_port: 8125
+    mock_mode: false
+    debug_mode: true
   smtp:
     enabled: true
     server: smtp.sendgrid.net
@@ -53,6 +66,13 @@ production:
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV.fetch('DALIA_SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
+  mini_graphite:
+    graphite_host: 10.0.0.44
+    graphite_port: 2003
+    statsd_host: 10.0.0.44
+    statsd_port: 8125
+    mock_mode: false
+    debug_mode: false
   smtp:
     enabled: true
     server: smtp.sendgrid.net
