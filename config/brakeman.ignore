@@ -15,8 +15,28 @@
       "user_input": null,
       "confidence": "High",
       "note": ""
+    },
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "d95b3e712c51162c431dcbe06a8e8a35e46b63ae318e1c79d83a01e288c4ac2d",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "lib/renaming_project.rb",
+      "line": 20,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "`git rm \"#{filepath}\"`",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "RenamingProject",
+        "method": "s(:self).perform"
+      },
+      "user_input": "filepath",
+      "confidence": "Medium",
+      "note": "parameter is accepted from command line only"
     }
   ],
-  "updated": "2019-05-15 17:19:45 +0200",
-  "brakeman_version": "4.5.1"
+  "updated": "2020-04-16 14:58:14 +0200",
+  "brakeman_version": "4.6.1"
 }
