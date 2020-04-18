@@ -5,8 +5,6 @@ module HasUuid
     before_validation :initialize_uuid, :on => :create
 
     def initialize_uuid
-      Rails.logger.info "XXX: uuid: #{uuid}"
-      Rails.logger.info "XXX: uuid.nil?: #{uuid.nil?}"
       self.uuid ||= SecureRandom.uuid
     end
   end
