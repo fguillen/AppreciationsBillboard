@@ -1,16 +1,16 @@
 development:
-  app_name: RailsSkeleton (Development)
+  app_name: AppreciationsBillboard (Development)
   monitor_mode: false
 
 test:
-  app_name: RailsSkeleton (Test)
+  app_name: AppreciationsBillboard (Test)
   monitor_mode: false
 
 staging:
-  app_name: RailsSkeleton (Staging)
+  app_name: AppreciationsBillboard (Staging)
   monitor_mode: false
 
 production:
-  app_name: RailsSkeleton
+  app_name: AppreciationsBillboard
   rules.ignore_url_regexes: ["^/health"]
   distributed_tracing.enabled: true

@@ -10,7 +10,7 @@ class NotifierTest < ActionMailer::TestCase
 
     assert_equal ["it@daliaresearch.com"], email.from
     assert_equal ["admin@email.com"], email.to
-    assert_equal "[RailsSkeleton] Password reset", email.subject
+    assert_equal "[AppreciationsBillboard] Password reset", email.subject
 
     # write_fixture("/notifier/admin_user_reset_password.txt", email.body.encoded)
     assert_equal(File.read(fixture("/notifier/admin_user_reset_password.txt")), email.body.encoded)

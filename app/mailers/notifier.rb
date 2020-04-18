@@ -6,7 +6,7 @@ class Notifier < ActionMailer::Base
 
     mail(
       :to => admin_user.email,
-      :subject => "[RailsSkeleton] Password reset"
+      :subject => "[AppreciationsBillboard] Password reset"
     )
   end
 end

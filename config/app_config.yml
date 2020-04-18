@@ -18,7 +18,7 @@ test:
       - TEST_TOKEN_1
       - TEST_TOKEN_2
 development:
-  host: http://railsskeleton.daliaresearch.com.pizza
+  host: http://appreciationsbillboard.daliaresearch.com.pizza
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
@@ -36,7 +36,7 @@ development:
       - TOKEN_1
       - TOKEN_2
 staging:
-  host: http://railsskeleton.staging.daliaresearch.com
+  host: http://appreciationsbillboard.staging.daliaresearch.com
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
@@ -52,7 +52,7 @@ staging:
     enabled: true
     server: smtp.sendgrid.net
     port: 587
-    domain: railsskeleton.staging.daliaresearch.com
+    domain: appreciationsbillboard.staging.daliaresearch.com
     user: apikey
     pass: "<%= ENV.fetch('DALIA_SECRET_SMTP_PASS') %>"
   api:
@@ -61,7 +61,7 @@ staging:
     token:
       - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
 production:
-  host: http://railsskeleton.daliaresearch.com
+  host: http://appreciationsbillboard.daliaresearch.com
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
@@ -77,7 +77,7 @@ production:
     enabled: true
     server: smtp.sendgrid.net
     port: 587
-    domain: railsskeleton.daliaresearch.com
+    domain: appreciationsbillboard.daliaresearch.com
     user: apikey
     pass: "<%= ENV.fetch('DALIA_SECRET_SMTP_PASS') %>"
   api:

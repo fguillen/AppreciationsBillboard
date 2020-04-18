@@ -2,7 +2,7 @@ test:
   adapter: mysql2
   encoding: utf8mb4
   collation: utf8mb4_bin
-  database: dalia_railsskeleton_test
+  database: dalia_appreciationsbillboard_test
   username: root
   password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
   host: 127.0.0.1
@@ -11,7 +11,7 @@ development:
   adapter: mysql2
   encoding: utf8mb4
   collation: utf8mb4_bin
-  database: dalia_railsskeleton_development
+  database: dalia_appreciationsbillboard_development
   username: root
   password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
   host: 127.0.0.1
@@ -20,9 +20,9 @@ staging:
   adapter: mysql2
   encoding: utf8mb4
   collation: utf8mb4_bin
-  host: db-railsskeleton-stg.dalia.network
+  host: db-appreciationsbillboard-stg.dalia.network
   port: 3306
-  database: railsskeleton
+  database: appreciationsbillboard
   username: daliaapp
   password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
 
@@ -30,8 +30,8 @@ production:
   adapter: mysql2
   encoding: utf8mb4
   collation: utf8mb4_bin
-  host: db-railsskeleton-prd.dalia.network
+  host: db-appreciationsbillboard-prd.dalia.network
   port: 3306
-  database: railsskeleton
+  database: appreciationsbillboard
   username: daliaapp
   password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>

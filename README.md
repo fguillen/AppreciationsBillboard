@@ -1,4 +1,4 @@
-# RailsSkeleton
+# AppreciationsBillboard
 
 ## Usage
 
@@ -13,10 +13,10 @@ Clone and renaming:
     mkdir MyNewAwesomeDaliaApp
     cd MyNewAwesomeDaliaApp
     git init
-    git remote add skeleton git@github.com:DaliaResearch/RailsSkeleton.git
+    git remote add skeleton git@github.com:DaliaResearch/AppreciationsBillboard.git
     git pull skeleton master
 
-    rake railsskeleton:utils:renaming_project[MyNewAwesomeDaliaApp]
+    rake appreciationsbillboard:utils:renaming_project[MyNewAwesomeDaliaApp]
     git add .
     git commit -m "Renaming Project"
 
