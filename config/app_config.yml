@@ -52,7 +52,7 @@ staging:
     enabled: true
     server: smtp.sendgrid.net
     port: 587
-    domain: railsskeleton.staging.daliaresearch.com
+    domain: appreciationsbillboard.staging.daliaresearch.com
     user: apikey
     pass: "<%= ENV.fetch('DALIA_SECRET_SMTP_PASS') %>"
   api:
@@ -77,7 +77,7 @@ production:
     enabled: true
     server: smtp.sendgrid.net
     port: 587
-    domain: railsskeleton.daliaresearch.com
+    domain: appreciationsbillboard.daliaresearch.com
     user: apikey
     pass: "<%= ENV.fetch('DALIA_SECRET_SMTP_PASS') %>"
   api:
