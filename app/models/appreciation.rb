@@ -6,7 +6,6 @@ class Appreciation < ApplicationRecord
       foreign_key: "appreciation_uuid",
       association_foreign_key: "appreciable_user_slug",
       join_name: "appreciable_users_appreciations"
- # Unknown key: :association_foreign_key. Valid keys are: :class_name, :anonymous_class, :foreign_key, :validate, :autosave, :table_name, :before_add, :after_add, :before_remove, :after_remove, :extend, :primary_key, :dependent, :as, :through, :source, :source_type, :inverse_of, :counter_cache, :join_table, :foreign_type, :index_errors
 
   include HasUuid
 
@@ -15,4 +14,17 @@ class Appreciation < ApplicationRecord
   validates :uuid, presence: true, uniqueness: true
 
   scope :by_recent, -> { order("created_at desc, uuid desc") }
+
+  def to_slugs=(slugs)
+    appreciable_users =
+      slugs.map do |slug|
+        AppreciableUser.find(slug)
+      end
+
+    self.to = appreciable_users
+  end
+
+  def to_slugs
+    to.map(&:slug)
+  end
 end

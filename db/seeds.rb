@@ -29,7 +29,7 @@ puts "Creating Appreciations"
   Appreciation.create!(
     by: AppreciableUser.all.sample,
     to: appreciable_users_to,
-    message: Faker::Markdown.sandwich(sentences: num_sentences)
+    message: Faker::Lorem.sentences(number: num_sentences)
   )
   print "."
 end

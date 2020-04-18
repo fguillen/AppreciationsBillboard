@@ -7,5 +7,7 @@ class CreateAppreciations < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_foreign_key :appreciations, :appreciable_users, column: :by_slug, primary_key: "slug"
   end
 end

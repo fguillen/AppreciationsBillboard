@@ -6,24 +6,5 @@
 
 <p><%= link_to "New Appreciation", new_admin_appreciation_path, :class => "btn btn-outline-primary" %></p>
 
-<table class="table table-striped table-hover">
-  <tr>
-    <th><%= t "activerecord.attributes.appreciation.uuid" %></th>
-    <th><%= t "activerecord.attributes.appreciation.message" %></th>
-    <th><%= t "activerecord.attributes.appreciation.created_at" %> At</th>
-    <th><%= t "activerecord.attributes.appreciation.by" %></th>
-    <th><%= t "activerecord.attributes.appreciation.to" %></th>
-
-  </tr>
-
-  <% @appreciations.each do |appreciation| %>
-    <tr>
-      <td><%= link_to appreciation.uuid, [:admin, appreciation] %></td>
-      <td><%= appreciation.message %></td>
-      <td><%= appreciation.created_at.to_s(:datetimedb) %></td>
-      <td><%= appreciation.by %></td>
-      <td><%= appreciation.to %></td>
-    </tr>
-  <% end %>
-</table>
+<%= render partial: "list", locals: { appreciations: @appreciations } %>
 

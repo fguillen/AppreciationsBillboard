@@ -19,6 +19,6 @@ FactoryBot.define do
   factory :appreciation do
     association :by, factory: :appreciable_user
     to { [FactoryBot.create(:appreciable_user)] }
-    message { Faker::Markdown.sandwich(sentences: 3) }
+    message { Faker::Lorem.sentence }
   end
 end

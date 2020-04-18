@@ -14,12 +14,11 @@ class Admin::AppreciationsController < Admin::BaseController
   end
 
   def create
-    puts "XXX: update"
     @appreciation = Appreciation.new(appreciation_params)
+
     if @appreciation.save
       redirect_to [:admin, @appreciation], :notice => t("controllers.appreciations.create.success")
     else
-      puts "XXX: #{@appreciation.errors.full_messages}"
       flash.now[:alert] = t("controllers.appreciations.create.error")
       render :action => :new
     end
@@ -29,6 +28,7 @@ class Admin::AppreciationsController < Admin::BaseController
   end
 
   def update
+    Rails.logger.debug "params: #{appreciation_params.inspect}"
     puts "XXX: update"
     if @appreciation.update_attributes(appreciation_params)
       redirect_to [:admin, @appreciation], :notice  => t("controllers.appreciations.update.success")
@@ -47,7 +47,7 @@ class Admin::AppreciationsController < Admin::BaseController
 protected
 
   def appreciation_params
-    params.require(:appreciation).permit(:by_slug, :message, to: [])
+    params.require(:appreciation).permit(:by_slug, :message, to_slugs: [])
   end
 
 private

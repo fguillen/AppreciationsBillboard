@@ -19,4 +19,20 @@ class AppreciableUserTest < ActiveSupport::TestCase
 
     assert_equal(appreciable_user, AppreciableUser.find(appreciable_user.slug))
   end
+
+  def test_relations
+    appreciable_user_1 = FactoryBot.create(:appreciable_user)
+    appreciable_user_2 = FactoryBot.create(:appreciable_user)
+    appreciable_user_3 = FactoryBot.create(:appreciable_user)
+
+    appreciation = FactoryBot.create(:appreciation, by: appreciable_user_1, to: [appreciable_user_2, appreciable_user_3])
+
+    assert_equal(appreciable_user_1, appreciation.by)
+    assert_equal(appreciable_user_2, appreciation.to.first)
+    assert_equal(appreciable_user_3, appreciation.to.second)
+
+    assert_equal(appreciation, appreciable_user_1.sent_appreciations.first)
+    assert_equal(appreciation, appreciable_user_2.received_appreciations.first)
+    assert_equal(appreciation, appreciable_user_3.received_appreciations.first)
+  end
 end

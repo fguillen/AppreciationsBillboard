@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :admin_user_sessions, :only => [:new, :create, :destroy]
     resources :admin_users
     resources :appreciations
+    resources :appreciable_users
   end
 
   namespace :api do
