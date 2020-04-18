@@ -1,5 +1,5 @@
 class Admin::AdminUserSessionsController < Admin::BaseController
-  layout "admin/admin_basic"
+  layout "admin/base_basic"
 
   def new
     @admin_user_session = AdminUserSession.new

@@ -43,7 +43,7 @@ class Admin::AdminUsersController < Admin::BaseController
   def reset_password
     @admin_user = AdminUser.find_using_perishable_token!(params[:reset_password_code], 1.week)
 
-    render :reset_password, :layout => "admin/admin_basic"
+    render :reset_password, :layout => "admin/base_basic"
   end
 
   def reset_password_submit
@@ -55,7 +55,7 @@ class Admin::AdminUsersController < Admin::BaseController
       redirect_back_or_default admin_root_path
     else
       flash.now[:alert] = t("controllers.admin_users.reset_password.error")
-      render :reset_password, :layout => "admin/admin_basic"
+      render :reset_password, :layout => "admin/base_basic"
     end
   end
 

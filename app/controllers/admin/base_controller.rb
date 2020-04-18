@@ -1,5 +1,5 @@
 class Admin::BaseController < ApplicationController
-  include Admin::AdminHelper
+  include Admin::BaseHelper
 
   layout "/admin/admin"
 

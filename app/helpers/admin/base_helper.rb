@@ -1,7 +1,7 @@
-module Admin::AdminHelper
+module Admin::BaseHelper
   include ApplicationHelper
 
-  def admin_menu_class(actual_menu_name)
+  def menu_class(actual_menu_name)
     menus = {
       :admin_users => ["/admin/admin_users.*"],
       :appreciable_users => ["/admin/appreciable_users.*"],

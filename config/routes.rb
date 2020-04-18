@@ -23,6 +23,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :front do
+    root :to => redirect("front/appreciations")
+    resources :appreciations
+  end
+
   get '/auth/:provider/callback' => 'admin/authorizations#create'
   get '/auth/failure' => 'admin/authorizations#failure'
   get '/auth/:provider' => 'admin/authorizations#blank'
