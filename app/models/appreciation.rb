@@ -13,4 +13,6 @@ class Appreciation < ApplicationRecord
   before_validation :initialize_uuid
 
   validates :uuid, presence: true, uniqueness: true
+
+  scope :by_recent, -> { order("created_at desc, uuid desc") }
 end

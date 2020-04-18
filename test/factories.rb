@@ -2,8 +2,7 @@ FactoryBot.define do
   factory :admin_user do
     name { Faker::Name.unique.name }
     email { Faker::Internet.unique.email }
-    password { "Password!" }
-    password_confirmation { "Password!" }
+    password { "Pass$$$!" }
   end
 
   factory :authorization do

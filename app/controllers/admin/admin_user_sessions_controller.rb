@@ -1,4 +1,4 @@
-class Admin::AdminUserSessionsController < Admin::AdminController
+class Admin::AdminUserSessionsController < Admin::BaseController
   layout "admin/admin_basic"
 
   def new

@@ -1,4 +1,4 @@
-class Admin::AuthorizationsController < Admin::AdminController
+class Admin::AuthorizationsController < Admin::BaseController
   before_action :require_admin_user, :only => [:destroy]
 
   def create

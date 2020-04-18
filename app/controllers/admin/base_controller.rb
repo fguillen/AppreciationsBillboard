@@ -1,4 +1,4 @@
-class Admin::AdminController < ApplicationController
+class Admin::BaseController < ApplicationController
   include Admin::AdminHelper
 
   layout "/admin/admin"

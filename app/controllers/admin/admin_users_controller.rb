@@ -1,4 +1,4 @@
-class Admin::AdminUsersController < Admin::AdminController
+class Admin::AdminUsersController < Admin::BaseController
   before_action :require_admin_user, :except => [:reset_password, :reset_password_submit]
   before_action :load_admin_user, :only => [:show, :edit, :update, :destroy]
 
