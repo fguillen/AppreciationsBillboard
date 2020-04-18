@@ -31,4 +31,16 @@ class AppreciationTest < ActiveSupport::TestCase
     assert_equal(appreciable_user_to_1, appreciation.to.first)
     assert_equal(appreciable_user_to_2, appreciation.to.second)
   end
+
+  def test_pic
+    appreciation = FactoryBot.create(:appreciation)
+    appreciation.pic.attach(io: File.open("#{FIXTURES_PATH}/files/thankyou.gif"), filename: "thankyou.gif")
+
+    puts appreciation.pic.previewable?
+
+
+    appreciation.pic.attach(io: File.open("#{FIXTURES_PATH}/files/yourule.png"), filename: "yourule.png")
+
+    puts appreciation.pic.previewable?
+  end
 end

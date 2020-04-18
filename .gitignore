@@ -26,3 +26,5 @@ staging_db_tunnel
 .env.staging
 .env.production
 .env.*.local
+storage
+tmp/storage

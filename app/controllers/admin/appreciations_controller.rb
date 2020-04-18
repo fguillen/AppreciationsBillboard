@@ -29,11 +29,9 @@ class Admin::AppreciationsController < Admin::BaseController
 
   def update
     Rails.logger.debug "params: #{appreciation_params.inspect}"
-    puts "XXX: update"
     if @appreciation.update_attributes(appreciation_params)
       redirect_to [:admin, @appreciation], :notice  => t("controllers.appreciations.update.success")
     else
-      puts "XXX: #{@appreciation.errors.full_messages}"
       flash.now[:alert] = t("controllers.appreciations.update.error")
       render :action => :edit
     end
@@ -47,7 +45,7 @@ class Admin::AppreciationsController < Admin::BaseController
 protected
 
   def appreciation_params
-    params.require(:appreciation).permit(:by_slug, :message, to_slugs: [])
+    params.require(:appreciation).permit(:by_slug, :message, :pic, to_slugs: [])
   end
 
 private

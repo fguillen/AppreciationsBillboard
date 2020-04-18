@@ -1,12 +1,13 @@
 class AppreciableUser < ApplicationRecord
   self.primary_key = :slug
 
-  has_many :sent_appreciations, class_name: "Appreciation", foreign_key: "by"
+  has_many :sent_appreciations, class_name: "Appreciation", foreign_key: "by_slug", dependent: :nullify
   has_and_belongs_to_many :received_appreciations,
       class_name: "Appreciation",
       foreign_key: "appreciable_user_slug",
       association_foreign_key: "appreciation_uuid",
-      join_name: "appreciable_users_appreciations"
+      join_name: "appreciable_users_appreciations",
+      dependent: :nullify
 
   validates :name, :presence => true
   validates :email, :presence => true, :uniqueness => true, :format => { :with => RubyRegex::Email }

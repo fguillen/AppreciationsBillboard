@@ -1,7 +1,7 @@
 module Front::BaseHelper
   include ApplicationHelper
 
-  def menu_class(actual_menu_name)
+  def front_menu_class(actual_menu_name)
     menus = {
       :appreciations => ["/front/appreciations.*"],
     }
