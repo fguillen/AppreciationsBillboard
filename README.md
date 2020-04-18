@@ -16,7 +16,7 @@ Clone and renaming:
     git remote add skeleton git@github.com:DaliaResearch/RailsSkeleton.git
     git pull skeleton master
 
-    rake railsskeleton:utils:renaming_project[MyNewAwesomeDaliaApp]
+    rake "railsskeleton:utils:renaming_project[MyNewAwesomeDaliaApp]"
     git add .
     git commit -m "Renaming Project"
 

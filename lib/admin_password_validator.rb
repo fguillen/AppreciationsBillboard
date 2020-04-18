@@ -2,11 +2,24 @@ class AdminPasswordValidator < ActiveModel::Validator
   PASSWORD_CHARS = [/[a-z]/, /[A-Z]/, /[0-9]/, /[\W]/]
 
   def validate(record)
+    password_size(record)
     password_does_not_contain_name(record)
     password_complexity(record)
   end
 
   private
+
+  def password_size(record)
+    return true unless record.send(:require_password?)
+
+    validator =
+      ActiveModel::Validations::LengthValidator.new(
+        :minimum => 8,
+        :attributes => :password
+      )
+
+    validator.validate(record)
+  end
 
   def password_does_not_contain_name(record)
     return true unless record.send(:require_password?)

@@ -1,6 +1,6 @@
 ---
 test:
-  host: test.com
+  hosts: <%= ENV.fetch('DALIA_SECRET_HOSTS').split(",").to_s %>
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "GOOGLE_CLIENT_ID"
@@ -18,7 +18,7 @@ test:
       - TEST_TOKEN_1
       - TEST_TOKEN_2
 development:
-  host: http://railsskeleton.daliaresearch.com.pizza
+  hosts: <%= ENV.fetch('DALIA_SECRET_HOSTS').split(",").to_s %>
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
@@ -36,7 +36,7 @@ development:
       - TOKEN_1
       - TOKEN_2
 staging:
-  host: http://railsskeleton.staging.daliaresearch.com
+  hosts: <%= ENV.fetch('DALIA_SECRET_HOSTS').split(",").to_s %>
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
@@ -61,7 +61,7 @@ staging:
     token:
       - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
 production:
-  host: http://railsskeleton.daliaresearch.com
+  hosts: <%= ENV.fetch('DALIA_SECRET_HOSTS').split(",").to_s %>
   admin_email: it@daliaresearch.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"

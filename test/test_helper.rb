@@ -9,6 +9,8 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require "mocha/setup"
 require_relative "factories"
+require 'authlogic/test_case'
+
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

@@ -8,7 +8,7 @@ end
 
 # Please: keep the gem declarations sorted.
 #   This will make future mergings MUCH easier. <3
-gem 'authlogic', '~> 4' # Authlogic 5 password authentication is completely broken (as of 5.0.2)
+gem 'authlogic', '6.0.0'
 gem 'bluecloth'
 gem 'bootsnap', require: false
 gem 'data_migrate'
@@ -16,17 +16,18 @@ gem 'dotenv-rails'
 gem 'fast_blank'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
-gem "mini_graphite", :git => "https://github.com/DaliaResearch/MiniGraphite.git"
+gem 'mini_graphite', :git => 'https://github.com/DaliaResearch/MiniGraphite.git'
 gem 'mysql2', '>= 0.3.18', '< 0.6.0'
-gem "newrelic_rpm"
+gem 'newrelic_rpm'
 gem 'oj'
 gem 'omniauth'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'puma', '~> 3.11'
-gem 'rails', '~> 5.2.2'
+gem 'rails', '~> 6.0.2.2'
 gem 'rollbar'
 gem 'ruby_regex', :git => 'https://github.com/fguillen/ruby_regex.git'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
+gem 'scrypt', '~> 3.0'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'uuid'

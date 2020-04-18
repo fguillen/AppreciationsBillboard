@@ -108,12 +108,11 @@ class Api::Admin::AdminUsersControllerTest < ActionController::TestCase
   def test_create_invalid
     request.env['HTTP_AUTHORIZATION'] = 'Dalia TEST_ADMIN_TOKEN_2'
     expected_error = "Validation failed: " \
-                     "Password must use at least three of the four available character types: lowercase letters, uppercase letters, numbers, and symbols., " \
                      "Password is too short (minimum is 8 characters), " \
-                     "Password confirmation doesn't match Password, " \
-                     "Password confirmation is too short (minimum is 8 characters), " \
+                     "Password must use at least three of the four available character types: lowercase letters, uppercase letters, numbers, and symbols., " \
                      "Name can't be blank, " \
-                     "Email is invalid"
+                     "Email is invalid, " \
+                     "Password confirmation doesn't match Password"
 
     post :create, params: { admin_user: { email: 'invalid', name: '', password: 'lorem', password_confirmation: 'ipsum' } }
 

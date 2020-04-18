@@ -1,16 +1,17 @@
 class AdminUser < ApplicationRecord
+  acts_as_authentic do |config|
+    config.crypto_provider = ::Authlogic::CryptoProviders::SCrypt
+  end
+
   validates_with AdminPasswordValidator
 
   include HasUuid
 
   has_many :authorizations, :dependent => :destroy
 
-  acts_as_authentic do |c|
-    c.validate_email_field = false
-  end
-
-  validates :name, :presence => true
-  validates :email, :presence => true, :uniqueness => true, :format => { :with => RubyRegex::Email }
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: RubyRegex::Email }
+  validates :password, confirmation: true
 
   scope :by_recent, -> { order("id desc") }
 
