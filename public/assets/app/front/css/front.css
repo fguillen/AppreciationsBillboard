@@ -1,0 +1,7 @@
+.col:nth-child(even) .card.appreciation {
+  transform: rotate(1deg);
+}
+
+.col:nth-child(odd) .card.appreciation {
+  transform: rotate(-1deg);
+}

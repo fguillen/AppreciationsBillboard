@@ -1,7 +1,7 @@
 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
   <% appreciations.each do |appreciation| %>
     <div class="col mb-4">
-      <div class="card">
+      <div class="card appreciation">
         <%= image_tag appreciation.pic, class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= appreciation.to.map(&:name).join(",") %></h5>

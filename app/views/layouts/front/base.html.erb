@@ -12,8 +12,6 @@
     <div class="container-fluid">
       <%= render "layouts/front/menu" %>
 
-      <div id="loading"><img src="/assets/app/front/img/spinner_min.gif" /></div>
-
       <div id="content">
         <% flash.each do |type, message| %>
           <%= content_tag :div, BlueCloth.new(message).to_html.html_safe, :id => "flash_#{type}", :class => bootstrap_alert_class(type.to_sym) %>
