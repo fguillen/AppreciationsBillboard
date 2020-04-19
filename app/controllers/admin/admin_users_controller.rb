@@ -50,7 +50,7 @@ class Admin::AdminUsersController < Admin::BaseController
     @admin_user = AdminUser.find_using_perishable_token!(params[:reset_password_code], 1.week)
 
     if @admin_user.update_attributes(admin_user_params)
-      AdminUserSession.create(@admin_user)
+      AdminSession.create(@admin_user)
       flash[:notice] = t("controllers.admin_users.reset_password.success")
       redirect_back_or_default admin_root_path
     else

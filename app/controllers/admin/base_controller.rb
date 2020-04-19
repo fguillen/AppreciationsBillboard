@@ -16,22 +16,22 @@ class Admin::BaseController < ApplicationController
     end
   end
 
-  def current_admin_user_session
-    return @current_admin_user_session if defined?(@current_admin_user_session)
-    @current_admin_user_session = AdminUserSession.find
+  def current_admin_session
+    return @current_admin_session if defined?(@current_admin_session)
+    @current_admin_session = AdminSession.find
   end
 
   def current_admin_user
     return @current_admin_user if defined?(@current_admin_user)
-    @current_admin_user = current_admin_user_session && current_admin_user_session.record
+    @current_admin_user = current_admin_session && current_admin_session.record
   end
 
   def store_location
-    session[:return_to] = request.url
+    session[:back_return_to] = request.url
   end
 
   def redirect_back_or_default( default )
-    redirect_to(session[:return_to] || default)
-    session[:return_to] = nil
+    redirect_to(session[:back_return_to] || default)
+    session[:back_return_to] = nil
   end
 end

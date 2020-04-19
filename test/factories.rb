@@ -5,10 +5,16 @@ FactoryBot.define do
     password { "Pass$$$!" }
   end
 
-  factory :authorization do
+  factory :admin_authorization do
     provider { "google_oauth2" }
     sequence(:uid)
-    association :admin_user, factory: :admin_user
+    admin_user
+  end
+
+  factory :appreciable_authorization do
+    provider { "google_oauth2" }
+    sequence(:uid)
+    appreciable_user
   end
 
   factory :appreciable_user do

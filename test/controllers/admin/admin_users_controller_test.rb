@@ -144,6 +144,6 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
     assert_redirected_to admin_root_path
     assert_not_nil(flash[:notice])
 
-    # assert_equal admin_user, AdminUserSession.new(:email => "email@email.com", :password => "PASS").record
+    # assert_equal admin_user, AdminSession.new(:email => "email@email.com", :password => "PASS").record
   end
 end

@@ -1,6 +1,12 @@
 class AppreciableUser < ApplicationRecord
   self.primary_key = :slug
 
+  acts_as_authentic do |config|
+    config.crypto_provider = ::Authlogic::CryptoProviders::SCrypt
+    config.session_class = AppreciableSession
+  end
+
+  has_many :authorizations, class_name: "AppreciableAuthorization", :dependent => :destroy
   has_many :sent_appreciations, class_name: "Appreciation", foreign_key: "by_slug", dependent: :nullify
   has_and_belongs_to_many :received_appreciations,
       class_name: "Appreciation",

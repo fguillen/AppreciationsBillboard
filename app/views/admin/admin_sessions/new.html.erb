@@ -1,10 +1,10 @@
-<% title (t "views.admin_user_sessions.new.title") %>
+<% title (t "views.admin_sessions.new.title") %>
 
 <ol class="breadcrumb push_down">
   <li class="active"><%= (t "layouts.breadcrumbs.login_admin") %></li>
 </ol>
 
-<%= form_for [:admin, @admin_user_session] do |f| %>
+<%= form_for [:admin, @admin_session] do |f| %>
   <%= render "/shared/form_errors", :object => f.object %>
 
   <fieldset>
@@ -43,7 +43,7 @@
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
         <%= f.submit "Sign in", :class => "btn btn-primary" %> &nbsp; or
-          &nbsp; <%= link_to "Login with Google", "/auth/google_oauth2", :class=> "btn btn-primary" %>
+          &nbsp; <%= link_to "Login with Google", "/auth/google_oauth2?from=admin", :class=> "btn btn-primary" %>
       </div>
     </div>
   </fieldset>

@@ -1,4 +1,4 @@
-class Authorization < ApplicationRecord
+class AdminAuthorization < ApplicationRecord
   belongs_to :admin_user
 
   validates_presence_of :admin_user_id, :uid, :provider
