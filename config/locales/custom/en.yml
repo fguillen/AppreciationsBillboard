@@ -3,6 +3,7 @@ en:
   activerecord:
     attributes:
       admin_user:
+        one: AdminUser
         created_at: Created at
         email: Email
         id: ID
@@ -11,14 +12,14 @@ en:
         updated_at: Updated at
         uuid: UUID
       appreciable_user:
+        one: AppreciableUser
         created_at: Created at
         email: Email
         name: Name
         slug: Slug
       appreciation:
-        by:
-          name: Name
-          to: To
+        one: Appreciation
+        by: Author
         created_at: Created at
         message: Message
         to: To

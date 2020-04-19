@@ -32,4 +32,19 @@ class Appreciation < ApplicationRecord
   def to_slugs
     to.map(&:slug)
   end
+
+  def to_names
+    to.map(&:name).join(", ")
+  end
+
+  def to_names=(value)
+    Rails.logger.info("XXX value: #{value}")
+
+    appreciable_users =
+      value.split(",").map(&:strip).map do |name|
+        AppreciableUser.where(name: name).first
+      end
+
+    self.to = appreciable_users.compact
+  end
 end

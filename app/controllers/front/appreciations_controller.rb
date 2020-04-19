@@ -15,10 +15,11 @@ class Front::AppreciationsController < Front::BaseController
   def create
     @appreciation = Appreciation.new(appreciation_params)
 
+    puts "XXX"
     if @appreciation.save
-      redirect_to [:front, @appreciation], :notice => t("controllers.appreciations.create.success")
+      redirect_to [:front, @appreciation] #, :notice => t("controllers.appreciations.create.success")
     else
-      flash.now[:alert] = t("controllers.appreciations.create.error")
+      # flash.now[:alert] = t("controllers.appreciations.create.error")
       render :action => :new
     end
   end
@@ -43,7 +44,7 @@ class Front::AppreciationsController < Front::BaseController
 protected
 
   def appreciation_params
-    params.require(:appreciation).permit(:by_slug, :message, to_slugs: [])
+    params.require(:appreciation).permit(:by_slug, :message, :to_names, :pic)
   end
 
 private

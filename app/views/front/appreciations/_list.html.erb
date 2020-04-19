@@ -2,7 +2,7 @@
   <% appreciations.each do |appreciation| %>
     <div class="col mb-4">
       <div class="card appreciation">
-        <%= image_tag appreciation.pic, class: "card-img-top" %>
+        <%= image_tag appreciation_pic(appreciation), class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= appreciation.to.map(&:name).join(",") %></h5>
           <p class="card-text font-weight-light"><%= appreciation.message %></p>
