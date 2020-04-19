@@ -22,15 +22,15 @@ end
 puts
 
 puts "Creating Appreciations"
-100.times do
+20.times do
   appreciable_users_to = (rand(2) + 1).times.map { AppreciableUser.all.sample }
-  num_sentences = rand(3) + 1
+  num_paragraphs = rand(5) + 1
 
   appreciation =
     Appreciation.create!(
       by: AppreciableUser.all.sample,
       to: appreciable_users_to,
-      message: Faker::Lorem.sentences(number: num_sentences),
+      message: Faker::Lorem.paragraphs(number: num_paragraphs).join("\n"),
     )
 
   if rand(2).zero?

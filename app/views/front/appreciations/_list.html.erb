@@ -5,7 +5,7 @@
         <%= image_tag appreciation.pic, class: "card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= appreciation.to.map(&:name).join(",") %></h5>
-          <p class="card-text"><%= appreciation.message %></p>
+          <p class="card-text font-weight-light"><%= appreciation.message %></p>
           <%= link_to "Read more ...", [:front, appreciation], class: "card-link" %>
         </div>
       </div>
