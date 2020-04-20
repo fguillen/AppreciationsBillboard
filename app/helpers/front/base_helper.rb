@@ -23,5 +23,12 @@ module Front::BaseHelper
 
     files[index % files.length]
   end
+
+  def appreciation_custom_style(appreciation)
+    styles = ["style_fish", "style_snell", "style_waterfly"]
+    index = appreciation.uuid.each_byte.inject( &:+ )
+
+    styles[index % styles.length]
+  end
 end
 

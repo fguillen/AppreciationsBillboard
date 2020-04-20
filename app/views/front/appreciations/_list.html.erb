@@ -1,11 +1,15 @@
-<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
+<div id="appreciations" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4">
   <% appreciations.each do |appreciation| %>
     <div class="col mb-4">
-      <div class="card appreciation">
+      <div class="card appreciation <%= appreciation_custom_style(appreciation) %>">
         <%= image_tag appreciation_pic(appreciation), class: "card-img-top" %>
         <div class="card-body">
-          <h5 class="card-title"><%= appreciation.to.map(&:name).join(",") %></h5>
-          <p class="card-text font-weight-light"><%= appreciation.message %></p>
+
+          <p class="static"><span><span class="font-weight-bold"><%= appreciation.by.name %></span>
+          wants to appreciate to</span></p>
+          <h5 class="card-title by"><%= appreciation.to.map(&:name).join(",") %></h5>
+          <p class="static"><span>because</span></p>
+          <p class="card-text message"><%= appreciation.message %></p>
           <%= link_to "Read more ...", [:front, appreciation], class: "card-link" %>
         </div>
       </div>
