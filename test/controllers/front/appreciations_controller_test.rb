@@ -2,7 +2,7 @@ require "test_helper"
 
 class Front::AppreciationsControllerTest < ActionController::TestCase
   def setup
-    # setup_admin_user
+    setup_appreciable_user
   end
 
   def test_index
@@ -58,7 +58,6 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
       :create,
       params: {
         appreciation: {
-          by_slug: appreciable_user_1,
           # to: [appreciable_user_2],
           message: "Wadus Message"
         }
@@ -69,7 +68,7 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
     assert_redirected_to [:front, appreciation]
 
     assert_equal("Wadus Message", appreciation.message)
-    assert_equal(appreciable_user_1, appreciation.by)
+    assert_equal(@appreciable_user, appreciation.by)
     # assert_equal(appreciable_user_2, appreciation.to.first)
   end
 

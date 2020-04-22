@@ -19,7 +19,7 @@ module Front::BaseHelper
 
   def select_default_pic(appreciation)
     index = appreciation.uuid.each_byte.inject( &:+ )
-    files = Dir["#{Rails.roog}/public/assets/app/front/appreciation_default_pics/*"]
+    files = Dir["#{Rails.root}/public/assets/app/front/appreciation_default_pics/*"]
 
     files[index % files.length]
   end

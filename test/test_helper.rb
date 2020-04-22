@@ -34,6 +34,11 @@ class ActiveSupport::TestCase
     @controller.stubs(:current_admin_user).returns(@admin_user)
   end
 
+  def setup_appreciable_user
+    @appreciable_user = FactoryBot.create(:appreciable_user)
+    @controller.stubs(:current_appreciable_user).returns(@appreciable_user)
+  end
+
   def difference_between_arrays(array1, array2)
     difference = array1.dup
     array2.each do |element|

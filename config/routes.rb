@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   namespace :front do
     get "login", :to => "appreciable_sessions#new", :as => :login
+    get "logout", :to => "appreciable_sessions#destroy", :as => :logout
 
     root :to => redirect("front/appreciations")
     resources :appreciations

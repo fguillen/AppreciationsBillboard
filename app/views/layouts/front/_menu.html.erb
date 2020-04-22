@@ -25,6 +25,10 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
+    <span class="navbar-text">
+      <%= current_appreciable_user.name %>
+      <%= link_to t("layouts.menu.logout"), front_logout_path %>
+    </span>
   </div>
 </nav>
 

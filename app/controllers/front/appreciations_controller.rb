@@ -1,4 +1,5 @@
 class Front::AppreciationsController < Front::BaseController
+  before_action :require_appreciable_user
   before_action :load_appreciation, :only => [:show, :edit, :update, :destroy]
 
   def index
@@ -14,12 +15,12 @@ class Front::AppreciationsController < Front::BaseController
 
   def create
     @appreciation = Appreciation.new(appreciation_params)
+    @appreciation.by = current_appreciable_user
 
-    puts "XXX"
     if @appreciation.save
       redirect_to [:front, @appreciation] #, :notice => t("controllers.appreciations.create.success")
     else
-      # flash.now[:alert] = t("controllers.appreciations.create.error")
+      flash.now[:alert] = t("controllers.appreciations.create.error")
       render :action => :new
     end
   end

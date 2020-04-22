@@ -10,8 +10,8 @@ class Front::BaseController < ApplicationController
   def require_appreciable_user
     unless current_appreciable_user
       store_location
-      flash[:alert] = t("controllers.admin.authentication_required")
-      redirect_to admin_login_path
+      flash[:alert] = t("controllers.front.authentication_required")
+      redirect_to front_login_path
       return false
     end
   end
