@@ -66,8 +66,6 @@ ActiveRecord::Schema.define(version: 2020_04_22_193008) do
     t.string "email", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "crypted_password"
-    t.string "password_salt"
     t.string "perishable_token"
     t.string "persistence_token"
     t.index ["email"], name: "index_appreciable_users_on_email", unique: true
