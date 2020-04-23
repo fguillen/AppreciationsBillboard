@@ -3,16 +3,18 @@
     <div class="col mb-4">
       <div class="card appreciation <%= appreciation_custom_style(appreciation) %>">
         <% if appreciation.pic.attached? %>
-          <%= image_tag appreciation.pic, class: "card-img-top" %>
+          <div class="card-img-top text-center">
+            <%= image_tag appreciation.pic, class: "" %>
+          </div>
         <% end %>
-        <div class="card-body">
 
+        <div class="card-body">
           <p class="static"><span><span class="font-weight-bold"><%= appreciation.by.name %></span>
           wants to appreciate to</span></p>
           <h5 class="card-title by"><%= appreciation.to.map(&:name).join(",") %></h5>
           <p class="static"><span>because</span></p>
-          <p class="card-text message"><%= appreciation.message %></p>
-          <%= link_to "Read more ...", [:front, appreciation], class: "card-link" %>
+          <div class="card-text message"><%= render_markdown(appreciation.message) %></div>
+          <%= link_to "Static link ...", [:front, appreciation], class: "card-link bottom" %>
         </div>
       </div>
     </div>

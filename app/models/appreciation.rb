@@ -13,6 +13,7 @@ class Appreciation < ApplicationRecord
   has_one_attached :pic
 
   before_validation :initialize_uuid
+  before_validation :initialize_pic
 
   validates :uuid, presence: true, uniqueness: true
   validates :pic, size: { less_than: 2.megabytes }
@@ -46,5 +47,16 @@ class Appreciation < ApplicationRecord
       end
 
     self.to = appreciable_users.compact
+  end
+
+private
+
+  def initialize_pic
+    return if pic.attached?
+
+    files = Dir["#{Rails.root}/db/appreciation_default_pics/*"]
+    file = files.sample
+
+    self.pic.attach(io: File.open(file), filename: File.basename(file))
   end
 end

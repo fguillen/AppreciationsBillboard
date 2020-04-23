@@ -1,10 +1,12 @@
 <% title (t "views.appreciations.show.title", :appreciation_uuid => @appreciation.uuid) %>
 
 <div class="row justify-content-md-center">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <div class="card appreciation <%= appreciation_custom_style(@appreciation) %>">
       <% if @appreciation.pic.attached? %>
-        <%= image_tag appreciation.pic, class: "card-img-top" %>
+        <div class="card-img-top text-center">
+          <%= image_tag @appreciation.pic, class: "" %>
+        </div>
       <% end %>
       <div class="card-body">
 
@@ -12,7 +14,7 @@
         wants to appreciate to</span></p>
         <h5 class="card-title by"><%= @appreciation.to.map(&:name).join(",") %></h5>
         <p class="static"><span>because</span></p>
-        <p class="card-text message"><%= @appreciation.message %></p>
+        <div class="card-text message"><%= render_markdown(@appreciation.message) %></div>
       </div>
     </div>
 

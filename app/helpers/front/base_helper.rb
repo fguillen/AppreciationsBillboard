@@ -9,28 +9,26 @@ module Front::BaseHelper
     menu_class(menus, actual_menu_name)
   end
 
-  # def appreciation_pic(appreciation)
-  #   if appreciation.pic.attached?
-  #     appreciation.pic
-  #   else
-  #     select_default_pic(appreciation)
-  #   end
-  # end
-
-  # def select_default_pic(appreciation)
-  #   index = appreciation.uuid.each_byte.inject( &:+ )
-  #   files = Dir["#{Rails.root}/public/assets/app/front/appreciation_default_pics/*"]
-  #   filepath = files[index % files.length]
-  #   filename = File.basename(filepath)
-
-  #   "/assets/app/front/appreciation_default_pics/#{filename}"
-  # end
-
   def appreciation_custom_style(appreciation)
     styles = ["style_fish", "style_snell", "style_waterfly"]
     index = appreciation.uuid.each_byte.inject( &:+ )
 
     styles[index % styles.length]
+  end
+
+  def render_markdown(text)
+    options = {
+      filter_html: true,
+      no_images: true,
+      no_links: true,
+      no_styles: true,
+      hard_wrap: true
+    }
+    renderer = Redcarpet::Render::HTML.new(options)
+    Redcarpet::Markdown.new(renderer).render(text).html_safe
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
+    markdown.render(text).html_safe
   end
 end
 

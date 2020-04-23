@@ -60,7 +60,7 @@ body {
     font-size: 1.2em;
     padding: 0.1em;
     margin: -1em 0em 1em -1em;
-    color: white;
+    color: #ffffff9c;
 }
 
 /* style_snell */
@@ -84,6 +84,14 @@ body {
     transform: rotate(-2deg);
     margin: -0.5em 0em 1em 0em;
     box-shadow: 2px 2px 4px 1px #0000008c;
+}
+
+.appreciation .bottom.card-link {
+  color: #7b7b7b9c;
+}
+
+.appreciation .card-img-top img {
+  max-width: 100%;
 }
 
 /* style_fish */

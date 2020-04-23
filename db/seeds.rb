@@ -33,11 +33,5 @@ puts "Creating Appreciations"
       message: Faker::Lorem.paragraphs(number: num_paragraphs).join("\n"),
     )
 
-  if rand(2).zero?
-    appreciation.pic.attach(io: File.open("#{Rails.root}/test/fixtures/files/thankyou.gif"), filename: "thankyou.gif")
-  else
-    appreciation.pic.attach(io: File.open("#{Rails.root}/test/fixtures/files/yourule.png"), filename: "yourule.png")
-  end
-
   print "."
 end
