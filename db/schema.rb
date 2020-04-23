@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_193008) do
   create_table "appreciable_authorizations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
-    t.bigint "appreciable_user_id"
+    t.string "appreciable_user_id"
     t.index ["appreciable_user_id"], name: "index_appreciable_authorizations_on_appreciable_user_id"
   end
 

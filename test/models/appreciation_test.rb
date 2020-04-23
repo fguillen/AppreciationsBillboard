@@ -34,13 +34,8 @@ class AppreciationTest < ActiveSupport::TestCase
 
   def test_pic
     appreciation = FactoryBot.create(:appreciation)
-    appreciation.pic.attach(io: File.open("#{FIXTURES_PATH}/files/thankyou.gif"), filename: "thankyou.gif")
-
-    puts appreciation.pic.previewable?
-
-
     appreciation.pic.attach(io: File.open("#{FIXTURES_PATH}/files/yourule.png"), filename: "yourule.png")
 
-    puts appreciation.pic.previewable?
+    assert(appreciation.pic.attached?)
   end
 end

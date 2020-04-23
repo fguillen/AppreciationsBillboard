@@ -18,7 +18,7 @@ class Front::BaseController < ApplicationController
 
   def current_appreciable_user_session
     return @current_appreciable_user_session if defined?(@current_appreciable_user_session)
-    @current_appreciable_user_session = AdminSession.find
+    @current_appreciable_user_session = AppreciableSession.find
   end
 
   def current_appreciable_user

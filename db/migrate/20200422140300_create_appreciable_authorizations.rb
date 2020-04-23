@@ -3,7 +3,7 @@ class CreateAppreciableAuthorizations < ActiveRecord::Migration[5.1]
     create_table :appreciable_authorizations do |t|
       t.string :provider
       t.string :uid
-      t.references :appreciable_user, index: true
+      t.string :appreciable_user_id, index: true
     end
   end
 end

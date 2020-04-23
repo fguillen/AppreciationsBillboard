@@ -2,7 +2,9 @@
   <% appreciations.each do |appreciation| %>
     <div class="col mb-4">
       <div class="card appreciation <%= appreciation_custom_style(appreciation) %>">
-        <%= image_tag appreciation_pic(appreciation), class: "card-img-top" %>
+        <% if appreciation.pic.attached? %>
+          <%= image_tag appreciation.pic, class: "card-img-top" %>
+        <% end %>
         <div class="card-body">
 
           <p class="static"><span><span class="font-weight-bold"><%= appreciation.by.name %></span>
