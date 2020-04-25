@@ -26,9 +26,6 @@ module Front::BaseHelper
     }
     renderer = Redcarpet::Render::HTML.new(options)
     Redcarpet::Markdown.new(renderer).render(text).html_safe
-
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, options)
-    markdown.render(text).html_safe
   end
 end
 

@@ -12,7 +12,7 @@
 
         <p class="static"><span><span class="font-weight-bold"><%= @appreciation.by.name %></span>
         wants to appreciate to</span></p>
-        <h5 class="card-title by"><%= @appreciation.to.map(&:name).join(",") %></h5>
+        <h5 class="card-title by"><%= @appreciation.to_formatted %></h5>
         <p class="static"><span>because</span></p>
         <div class="card-text message"><%= render_markdown(@appreciation.message) %></div>
       </div>

@@ -51,14 +51,16 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
   end
 
   def test_create_valid
-    appreciable_user_1 = FactoryBot.create(:appreciable_user)
-    appreciable_user_2 = FactoryBot.create(:appreciable_user)
+    appreciable_user_1 = FactoryBot.create(:appreciable_user, name: "Margot Huels")
+    appreciable_user_2 = FactoryBot.create(:appreciable_user, name: "Amberly Collier")
+
+    Appreciation.any_instance.expects(:slack_notification)
 
     post(
       :create,
       params: {
         appreciation: {
-          # to: [appreciable_user_2],
+          to_names: "#{appreciable_user_1.name}, #{appreciable_user_2.name}",
           message: "Wadus Message"
         }
       }
@@ -69,7 +71,9 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
 
     assert_equal("Wadus Message", appreciation.message)
     assert_equal(@appreciable_user, appreciation.by)
-    # assert_equal(appreciable_user_2, appreciation.to.first)
+    assert_equal(2, appreciation.to.size)
+    assert(appreciation.to.include?(appreciable_user_1))
+    assert(appreciation.to.include?(appreciable_user_2))
   end
 
   def test_edit

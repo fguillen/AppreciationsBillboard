@@ -18,6 +18,7 @@ class Front::AppreciationsController < Front::BaseController
     @appreciation.by = current_appreciable_user
 
     if @appreciation.save
+      @appreciation.slack_notification if APP_CONFIG[:slack_notifier]["enabled"]
       redirect_to [:front, @appreciation] #, :notice => t("controllers.appreciations.create.success")
     else
       flash.now[:alert] = t("controllers.appreciations.create.error")

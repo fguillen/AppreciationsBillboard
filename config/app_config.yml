@@ -17,6 +17,10 @@ test:
     token:
       - TEST_TOKEN_1
       - TEST_TOKEN_2
+  slack_notifier:
+    enabled: true
+    webhook_url: https://hooks.slack.com/services/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
+
 development:
   hosts: <%= ENV.fetch('DALIA_SECRET_HOSTS').split(",").to_s %>
   admin_email: it@daliaresearch.com
@@ -35,6 +39,10 @@ development:
     token:
       - TOKEN_1
       - TOKEN_2
+  slack_notifier:
+    enabled: true
+    webhook_url: <%= ENV.fetch('DALIA_SECRET_SLACK_WEBHOOK_URL') %>
+
 staging:
   hosts: <%= ENV.fetch('DALIA_SECRET_HOSTS').split(",").to_s %>
   admin_email: it@daliaresearch.com
@@ -60,6 +68,10 @@ staging:
       - "<%= ENV.fetch('DALIA_SECRET_API_ADMIN_TOKEN') %>"
     token:
       - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
+  slack_notifier:
+    enabled: true
+    webhook_url: <%= ENV.fetch('DALIA_SECRET_SLACK_WEBHOOK_URL') %>
+
 production:
   hosts: <%= ENV.fetch('DALIA_SECRET_HOSTS').split(",").to_s %>
   admin_email: it@daliaresearch.com
@@ -85,3 +97,6 @@ production:
       - "<%= ENV.fetch('DALIA_SECRET_API_ADMIN_TOKEN') %>"
     token:
       - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
+  slack_notifier:
+    enabled: true
+    webhook_url: <%= ENV.fetch('DALIA_SECRET_SLACK_WEBHOOK_URL') %>
