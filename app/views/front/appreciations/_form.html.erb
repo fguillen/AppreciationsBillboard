@@ -70,6 +70,10 @@
   </div>
 </div>
 
+
+
+<!-- Autocomplete Stuff -->
+
 <script type="text/javascript">
   $( function() {
     var availableTags = <%= AppreciableUser.all.map(&:name).to_json.html_safe %>;

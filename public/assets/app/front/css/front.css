@@ -170,7 +170,14 @@ body {
   transform: rotate(1deg);
 }
 
-.appreciation.style_no_saved textarea.form-control {
+/* form */
+
+.appreciation textarea.form-control {
     background-color: #fff0;
     border: none;
+    padding: 0;
+}
+
+.appreciation h5 textarea.form-control {
+  font-size: 1.25rem;
 }
