@@ -39,24 +39,14 @@ class ActiveSupport::TestCase
     @controller.stubs(:current_appreciable_user).returns(@appreciable_user)
   end
 
-  def difference_between_arrays(array1, array2)
-    difference = array1.dup
-    array2.each do |element|
-      if index = difference.index(element)
-        difference.delete_at(index)
-      end
-    end
-    difference
+  def assert_ids(array_1, array_2, message = nil)
+    assert_equal(array_1.ids, array_2.ids)
   end
 
-  def same_elements?(array1, array2)
-    extra_items = difference_between_arrays(array1, array2)
-    missing_items = difference_between_arrays(array2, array1)
-    extra_items.empty? & missing_items.empty?
-  end
-
-  def assert_ids(array1, array2, message = nil)
-    assert(same_elements?(array1.to_a, array2.to_a), message)
+  def assert_primary_keys(array_1, array_2, message = nil)
+    array_1_keys = array_1.map { |e| e.send(e.class.primary_key) }
+    array_2_keys = array_2.map { |e| e.send(e.class.primary_key) }
+    assert_equal(array_1_keys, array_2_keys)
   end
 
   # Add more helper methods to be used by all tests here...

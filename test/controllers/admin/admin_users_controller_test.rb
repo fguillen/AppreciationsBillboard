@@ -6,13 +6,13 @@ class Admin::AdminUsersControllerTest < ActionController::TestCase
   end
 
   def test_index
-    admin_user_1 = FactoryBot.create(:admin_user)
-    admin_user_2 = FactoryBot.create(:admin_user)
+    admin_user_1 = FactoryBot.create(:admin_user, created_at: "2020-04-25")
+    admin_user_2 = FactoryBot.create(:admin_user, created_at: "2020-04-25")
 
     get :index
 
     assert_template "admin/admin_users/index"
-    assert_ids([admin_user_2, admin_user_1, @admin_user], assigns(:admin_users))
+    assert_primary_keys([admin_user_2, admin_user_1, @admin_user], assigns(:admin_users))
   end
 
   def test_show

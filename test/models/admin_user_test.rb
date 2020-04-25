@@ -18,11 +18,11 @@ class AdminUserTest < ActiveSupport::TestCase
     assert_not_equal(old_perishable_token, admin_user.perishable_token)
   end
 
-  def test_scope_by_recent
+  def test_scope_order_by_recent
     admin_user_1 = FactoryBot.create(:admin_user, :id => 1002)
     admin_user_2 = FactoryBot.create(:admin_user, :id => 1003)
     admin_user_3 = FactoryBot.create(:admin_user, :id => 1001)
 
-    assert_ids([admin_user_2, admin_user_1, admin_user_3], AdminUser.by_recent)
+    assert_primary_keys([admin_user_2, admin_user_1, admin_user_3], AdminUser.order_by_recent)
   end
 end

@@ -1,6 +1,6 @@
 class CreateJoinTableAppreciationsAppreciableUsers < ActiveRecord::Migration[6.0]
   def change
-    create_table :appreciable_users_appreciations, id: false, force: :cascade do |t|
+    create_table :appreciable_users_appreciations, force: :cascade do |t|
       t.string :appreciation_uuid, null: false
       t.string :appreciable_user_slug, null: false
       t.index [:appreciable_user_slug, :appreciation_uuid], name: "appreciable_user_slug_appreciation_uuid"

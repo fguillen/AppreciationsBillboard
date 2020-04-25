@@ -94,7 +94,9 @@ en:
     menu:
       admin_users: Admin Users
       appreciable_users: Appreciable users
-      appreciations: Appreciations
+      appreciations: See all appreciations
+      appreciations_by_me: Appreciations by me
+      appreciations_to_me: Appreciations to me
       edit_profile: Edit Profile
       login: Login
       logout: Logout

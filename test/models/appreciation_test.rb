@@ -32,6 +32,32 @@ class AppreciationTest < ActiveSupport::TestCase
     assert_equal(appreciable_user_to_2, appreciation.to.second)
   end
 
+  def test_scope_by
+    appreciable_user_1 = FactoryBot.create(:appreciable_user)
+    appreciable_user_2 = FactoryBot.create(:appreciable_user)
+    appreciable_user_3 = FactoryBot.create(:appreciable_user)
+
+    appreciation_1 = FactoryBot.create(:appreciation, by: appreciable_user_1, to: [appreciable_user_2, appreciable_user_3])
+    appreciation_2 = FactoryBot.create(:appreciation, by: appreciable_user_2, to: [appreciable_user_3])
+
+    assert_primary_keys([appreciation_1], Appreciation.by(appreciable_user_1))
+    assert_primary_keys([appreciation_2], Appreciation.by(appreciable_user_2))
+    assert_primary_keys([], Appreciation.by(appreciable_user_3))
+  end
+
+  def test_scope_to
+    appreciable_user_1 = FactoryBot.create(:appreciable_user)
+    appreciable_user_2 = FactoryBot.create(:appreciable_user)
+    appreciable_user_3 = FactoryBot.create(:appreciable_user)
+
+    appreciation_1 = FactoryBot.create(:appreciation, by: appreciable_user_1, to: [appreciable_user_2, appreciable_user_3])
+    appreciation_2 = FactoryBot.create(:appreciation, by: appreciable_user_2, to: [appreciable_user_3])
+
+    assert_primary_keys([], Appreciation.to(appreciable_user_1))
+    assert_primary_keys([appreciation_1], Appreciation.to(appreciable_user_2))
+    assert_primary_keys([appreciation_1, appreciation_2].sort, Appreciation.to(appreciable_user_3).sort)
+  end
+
   def test_pic
     appreciation = FactoryBot.create(:appreciation)
     appreciation.pic.attach(io: File.open("#{FIXTURES_PATH}/files/yourule.png"), filename: "yourule.png")

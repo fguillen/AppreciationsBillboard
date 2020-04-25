@@ -3,7 +3,7 @@ class Admin::AppreciationsController < Admin::BaseController
   before_action :load_appreciation, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @appreciations = Appreciation.by_recent
+    @appreciations = Appreciation.order_by_recent
   end
 
   def show

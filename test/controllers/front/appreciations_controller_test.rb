@@ -6,13 +6,51 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
   end
 
   def test_index
-    appreciation_1 = FactoryBot.create(:appreciation)
-    appreciation_2 = FactoryBot.create(:appreciation)
+    appreciation_1 = FactoryBot.create(:appreciation, created_at: "2020-04-25")
+    appreciation_2 = FactoryBot.create(:appreciation, created_at: "2020-04-26")
 
     get :index
 
     assert_template "front/appreciations/index"
-    assert_ids([appreciation_2, appreciation_1], assigns(:appreciations))
+    assert_primary_keys([appreciation_2, appreciation_1], assigns(:appreciations))
+  end
+
+  def test_index_by
+    appreciable_user_1 = FactoryBot.create(:appreciable_user)
+    appreciable_user_2 = FactoryBot.create(:appreciable_user)
+    appreciable_user_3 = FactoryBot.create(:appreciable_user)
+
+    appreciation_1 = FactoryBot.create(:appreciation, by: appreciable_user_1, to: [appreciable_user_2, appreciable_user_3])
+    appreciation_2 = FactoryBot.create(:appreciation, by: appreciable_user_2, to: [appreciable_user_3])
+
+    get(
+      :index,
+      params: {
+        by: appreciable_user_1
+      }
+    )
+
+    assert_template "front/appreciations/index"
+    assert_primary_keys([appreciation_1], assigns(:appreciations))
+  end
+
+  def test_index_to
+    appreciable_user_1 = FactoryBot.create(:appreciable_user)
+    appreciable_user_2 = FactoryBot.create(:appreciable_user)
+    appreciable_user_3 = FactoryBot.create(:appreciable_user)
+
+    appreciation_1 = FactoryBot.create(:appreciation, by: appreciable_user_1, to: [appreciable_user_2, appreciable_user_3])
+    appreciation_2 = FactoryBot.create(:appreciation, by: appreciable_user_2, to: [appreciable_user_3])
+
+    get(
+      :index,
+      params: {
+        to: appreciable_user_2
+      }
+    )
+
+    assert_template "front/appreciations/index"
+    assert_primary_keys([appreciation_1], assigns(:appreciations))
   end
 
   def test_show

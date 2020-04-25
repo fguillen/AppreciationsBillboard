@@ -21,7 +21,7 @@ class AppreciableUser < ApplicationRecord
 
   before_validation :initialize_slug
 
-  scope :by_recent, -> { order("created_at desc, slug desc") }
+  scope :order_by_recent, -> { order("created_at desc, slug desc") }
 
   private
 

@@ -6,13 +6,13 @@ class Admin::AppreciationsControllerTest < ActionController::TestCase
   end
 
   def test_index
-    appreciation_1 = FactoryBot.create(:appreciation)
-    appreciation_2 = FactoryBot.create(:appreciation)
+    appreciation_1 = FactoryBot.create(:appreciation, created_at: "2020-04-25")
+    appreciation_2 = FactoryBot.create(:appreciation, created_at: "2020-04-26")
 
     get :index
 
     assert_template "admin/appreciations/index"
-    assert_ids([appreciation_2, appreciation_1], assigns(:appreciations))
+    assert_primary_keys([appreciation_2, appreciation_1], assigns(:appreciations))
   end
 
   def test_show

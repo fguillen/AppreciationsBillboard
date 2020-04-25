@@ -4,7 +4,17 @@ class Front::AppreciationsController < Front::BaseController
   before_action :validate_current_appreciable_user, :only => [:edit, :update, :destroy]
 
   def index
-    @appreciations = Appreciation.by_recent
+    @appreciations = Appreciation.order_by_recent
+
+    if index_params[:by]
+      appreciable_user = AppreciableUser.find(index_params[:by])
+      @appreciations = @appreciations.by(appreciable_user)
+    end
+
+    if index_params[:to]
+      appreciable_user = AppreciableUser.find(index_params[:to])
+      @appreciations = @appreciations.to(appreciable_user)
+    end
   end
 
   def show
@@ -48,6 +58,10 @@ protected
 
   def appreciation_params
     params.require(:appreciation).permit(:by_slug, :message, :to_names, :pic)
+  end
+
+  def index_params
+    params.permit(:by, :to)
   end
 
 private

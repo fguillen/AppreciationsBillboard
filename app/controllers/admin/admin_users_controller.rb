@@ -3,7 +3,7 @@ class Admin::AdminUsersController < Admin::BaseController
   before_action :load_admin_user, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @admin_users = AdminUser.by_recent
+    @admin_users = AdminUser.order_by_recent
   end
 
   def show

@@ -1,5 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to Rails.application.class.parent_name, :front_root, :class => "navbar-brand" %>
+<nav class="navbar navbar-expand-lg navbar-light">
+
+  <%= link_to :front_root, :class => "navbar-brand" do %>
+    <img src="/assets/app/shared/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    AppreciationsBillboard
+  <% end %>
+
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -22,8 +27,8 @@
             <%= current_appreciable_user.name %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Appreciations to me</a>
-            <a class="dropdown-item" href="#">Appreciations by me</a>
+            <%= link_to t("layouts.menu.appreciations_to_me"), front_appreciations_path(to: current_appreciable_user), class: "dropdown-item" %>
+            <%= link_to t("layouts.menu.appreciations_by_me"), front_appreciations_path(by: current_appreciable_user), class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to t("layouts.menu.logout"), front_logout_path, class: "dropdown-item" %>
           </div>

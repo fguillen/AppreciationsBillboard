@@ -3,7 +3,7 @@ class Admin::AppreciableUsersController < Admin::BaseController
   before_action :load_appreciable_user, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @appreciable_users = AppreciableUser.by_recent
+    @appreciable_users = AppreciableUser.order_by_recent
   end
 
   def show

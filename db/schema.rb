@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_193008) do
     t.index ["slug"], name: "index_appreciable_users_on_slug", unique: true
   end
 
-  create_table "appreciable_users_appreciations", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "appreciable_users_appreciations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "appreciation_uuid", null: false
     t.string "appreciable_user_slug", null: false
     t.index ["appreciable_user_slug", "appreciation_uuid"], name: "appreciable_user_slug_appreciation_uuid"

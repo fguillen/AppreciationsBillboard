@@ -8,7 +8,7 @@ class Appreciation < ApplicationRecord
       class_name: "AppreciableUser",
       foreign_key: "appreciation_uuid",
       association_foreign_key: "appreciable_user_slug",
-      join_name: "appreciable_users_appreciations"
+      join_table: "appreciable_users_appreciations"
 
   has_one_attached :pic
 
@@ -19,7 +19,9 @@ class Appreciation < ApplicationRecord
   validates :pic, size: { less_than: 2.megabytes }
   validates :pic, dimension: { width: { min: 50 }, height: { min: 50 } }
 
-  scope :by_recent, -> { order("created_at desc, uuid desc") }
+  scope :order_by_recent, -> { order("created_at desc, uuid desc") }
+  scope :by, -> (appreciable_user) { where(by: appreciable_user)}
+  scope :to, -> (appreciable_user) { joins("JOIN appreciable_users_appreciations ON appreciations.uuid = appreciable_users_appreciations.appreciation_uuid").where("appreciable_users_appreciations.appreciable_user_slug = ?", appreciable_user) }
 
   def to_slugs=(slugs)
     appreciable_users =
