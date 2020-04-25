@@ -42,36 +42,6 @@
   </div>
 <% end %>
 
-
-<div id="appreciation-form">
-  <div class="jumbotron">
-    <h1 class="display-4">I want to appreciate!</h1>
-    <p class="lead">Send your appreciation to your college</p>
-    <hr class="my-4">
-
-    <%= form_for [:front, @appreciation] do |f| %>
-      <%= render "/shared/form_errors", :object => f.object %>
-
-      <p><span>I want to send an appreciation to</span></p>
-      <%= f.text_area :to_names, class: "form-control", id: "names" %>
-
-      <p><span>because</span></p>
-      <%= f.text_area :message, class: "form-control", rows: 10, placeholder: t("activerecord.attributes.appreciation.message") %>
-
-
-      <p><span>and I want to pump it up with this image</span></p>
-      <%= f.file_field :pic, class: "form-control-file" %>
-
-
-      <div class="text-right">
-        <%= f.submit class: "btn btn-outline-dark btn-lg", role: "button"%>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-
-
 <!-- Autocomplete Stuff -->
 
 <script type="text/javascript">
@@ -121,6 +91,7 @@
 
 <style type="text/css">
   .ui-autocomplete {
+    transform: rotate(-4deg);
     position: absolute;
     top: 100%;
     left: 0;
