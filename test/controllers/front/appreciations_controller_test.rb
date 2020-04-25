@@ -77,7 +77,7 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
   end
 
   def test_edit
-    appreciation = FactoryBot.create(:appreciation)
+    appreciation = FactoryBot.create(:appreciation, by: @appreciable_user)
 
     get :edit, :params => {:id => appreciation}
 
@@ -86,7 +86,7 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
   end
 
   def test_update_invalid
-    appreciation = FactoryBot.create(:appreciation)
+    appreciation = FactoryBot.create(:appreciation, by: @appreciable_user)
 
     Appreciation.any_instance.stubs(:valid?).returns(false)
 
@@ -105,7 +105,7 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
   end
 
   def test_update_valid
-    appreciation = FactoryBot.create(:appreciation)
+    appreciation = FactoryBot.create(:appreciation, by: @appreciable_user)
 
     put(
       :update,
@@ -125,7 +125,7 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
   end
 
   def test_destroy
-    appreciation = FactoryBot.create(:appreciation)
+    appreciation = FactoryBot.create(:appreciation, by: @appreciable_user)
 
     delete :destroy, :params => {:id => appreciation}
 
@@ -133,5 +133,53 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
     assert_not_nil(flash[:notice])
 
     assert !Appreciation.exists?(appreciation.id)
+  end
+
+  def test_edit_not_allowed
+    appreciable_user = FactoryBot.create(:appreciable_user)
+    appreciation = FactoryBot.create(:appreciation, by: appreciable_user)
+
+    get(
+      :edit,
+      params: {
+        id: appreciation
+      }
+    )
+
+    assert_redirected_to [:front, appreciation]
+    assert_not_nil(flash[:alert])
+  end
+
+  def test_update_not_allowed
+    appreciable_user = FactoryBot.create(:appreciable_user)
+    appreciation = FactoryBot.create(:appreciation, by: appreciable_user)
+
+    put(
+      :update,
+      params: {
+        id: appreciation,
+        appreciation: {
+          message: "The Wadus Message New"
+        }
+      }
+    )
+
+    assert_redirected_to [:front, appreciation]
+    assert_not_nil(flash[:alert])
+  end
+
+  def test_destroy_not_allowed
+    appreciable_user = FactoryBot.create(:appreciable_user)
+    appreciation = FactoryBot.create(:appreciation, by: appreciable_user)
+
+    delete(
+      :destroy,
+      params: {
+        id: appreciation
+      }
+    )
+
+    assert_redirected_to [:front, appreciation]
+    assert_not_nil(flash[:alert])
   end
 end

@@ -74,6 +74,7 @@ en:
         error: Error
         success: Success
     front:
+      access_not_authorized: Access not authorized
       authentication_required: Authentication required
   date:
     formats:

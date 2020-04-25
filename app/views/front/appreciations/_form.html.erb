@@ -1,3 +1,48 @@
+
+<%= form_for [:front, @appreciation] do |f| %>
+  <%= render "/shared/form_errors", :object => f.object %>
+  <div class="row justify-content-md-center">
+    <div class="col-md-6">
+      <div class="card appreciation <%= appreciation_custom_style(@appreciation) %>">
+        <% if @appreciation.pic.attached? %>
+          <div class="card-img-top text-center">
+            <%= image_tag @appreciation.pic, class: "" %>
+          </div>
+        <% end %>
+        <div class="card-body">
+
+          <p class="static">
+            <span>
+              <span class="font-weight-bold">I, <%= @appreciation.by.name %></span>
+              want to appreciate to
+            </span>
+          </p>
+
+          <h5 class="card-title by">
+            <%= f.text_area :to_names, class: "form-control", id: "names" %>
+          </h5>
+
+          <p class="static"><span>because</span></p>
+
+          <div class="card-text message">
+            <%= f.text_area :message, class: "form-control", rows: 10, placeholder: t("activerecord.attributes.appreciation.message") %>
+          </div>
+
+          <p class="static"><span>and I want to pump it up with this image</span></p>
+          <%= f.file_field :pic, class: "form-control-file" %>
+        </div>
+      </div>
+
+      <div class="controls text-right">
+        <p>
+          <%= f.submit class: "btn btn-outline-dark btn-lg", role: "button"%>
+        </p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
 <div id="appreciation-form">
   <div class="jumbotron">
     <h1 class="display-4">I want to appreciate!</h1>

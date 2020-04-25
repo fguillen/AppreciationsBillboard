@@ -1,6 +1,7 @@
 class Front::AppreciationsController < Front::BaseController
   before_action :require_appreciable_user
   before_action :load_appreciation, :only => [:show, :edit, :update, :destroy]
+  before_action :validate_current_appreciable_user, :only => [:edit, :update, :destroy]
 
   def index
     @appreciations = Appreciation.by_recent
@@ -10,7 +11,7 @@ class Front::AppreciationsController < Front::BaseController
   end
 
   def new
-    @appreciation = Appreciation.new
+    @appreciation = Appreciation.new(by: current_appreciable_user)
   end
 
   def create
@@ -53,5 +54,12 @@ private
 
   def load_appreciation
     @appreciation = Appreciation.find(params[:id])
+  end
+
+  def validate_current_appreciable_user
+    if @appreciation.by != current_appreciable_user
+      redirect_to [:front, @appreciation], :alert  => t("controllers.front.access_not_authorized")
+      return false
+    end
   end
 end

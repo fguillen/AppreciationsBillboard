@@ -10,3 +10,6 @@ Simple application to deliver some appreciation to your colleges
 
 - Bird: https://freeicons.io/animal-icons/bird-icon-29545
 
+# Slack App
+
+- https://api.slack.com/apps/A012GPEULUD/general?

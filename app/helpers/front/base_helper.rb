@@ -10,6 +10,8 @@ module Front::BaseHelper
   end
 
   def appreciation_custom_style(appreciation)
+    return "style_no_saved" if appreciation.uuid.nil?
+
     styles = ["style_fish", "style_snell", "style_waterfly"]
     index = appreciation.uuid.each_byte.inject( &:+ )
 

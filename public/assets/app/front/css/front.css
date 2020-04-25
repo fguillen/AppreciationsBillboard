@@ -144,3 +144,33 @@ body {
 .appreciation.style_waterfly .message{
   transform: rotate(1deg);
 }
+
+/* style_no_saved */
+.appreciation.style_no_saved {
+  background-color: #e2ecdcde;
+  transform: rotate(-2deg);
+  box-shadow: 5px 4px 8px 2px #6b6a55;
+}
+
+.appreciation.style_no_saved p.static {
+  transform: rotate(-1deg);
+}
+
+.appreciation.style_no_saved .by,
+.appreciation.style_no_saved .message{
+    margin-bottom: .75rem;
+    background-color: #ffffffc7;
+    padding: 0.5em;
+    transform: rotate(-2deg);
+    margin: -0.5em 0em 1em 0em;
+    box-shadow: 2px 2px 4px 1px #0000008c;
+}
+
+.appreciation.style_no_saved .message{
+  transform: rotate(1deg);
+}
+
+.appreciation.style_no_saved textarea.form-control {
+    background-color: #fff0;
+    border: none;
+}
