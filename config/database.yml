@@ -27,11 +27,5 @@ staging:
   password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
 
 production:
-  adapter: mysql2
-  encoding: utf8mb4
-  collation: utf8mb4_bin
-  host: db-appreciationsbillboard-prd.dalia.network
-  port: 3306
-  database: appreciationsbillboard
-  username: daliaapp
-  password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
+  production:
+    url: <%= ENV["DATABASE_URL"] %>

@@ -34,11 +34,9 @@ development:
     enabled: false
   api:
     admin_token:
-      - ADMIN_TOKEN_1
-      - ADMIN_TOKEN_2
+      - "<%= ENV.fetch('DALIA_SECRET_API_ADMIN_TOKEN') %>"
     token:
-      - TOKEN_1
-      - TOKEN_2
+      - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
   slack_notifier:
     enabled: true
     webhook_url: <%= ENV.fetch('DALIA_SECRET_SLACK_WEBHOOK_URL') %>

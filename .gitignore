@@ -28,3 +28,4 @@ staging_db_tunnel
 .env.*.local
 storage
 tmp/storage
+/node_modules

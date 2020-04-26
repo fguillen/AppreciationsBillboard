@@ -22,4 +22,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.hosts = ENV.fetch("DALIA_SECRET_HOSTS")
+
+  config.active_storage.service = :amazon
 end

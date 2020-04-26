@@ -14,6 +14,15 @@ local:
 #   region: us-east-1
 #   bucket: your_own_bucket
 
+<% if Rails.env.production? || Rails.env.staging? %>
+amazon:
+  service: S3
+  access_key_id: <%= ENV.fetch("DALIA_SECRET_AWS_S3_ACCESS_KEY_ID") %>
+  secret_access_key: <%= ENV.fetch("DALIA_SECRET_AWS_S3_SECRET_ACCESS_KEY") %>
+  region: "eu-west-1"
+  bucket: "appreciationsbillboard-<%= Rails.env %>"
+<% end %>
+
 # Remember not to checkin your GCS keyfile to a repository
 # google:
 #   service: GCS

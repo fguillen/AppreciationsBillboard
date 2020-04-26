@@ -10,6 +10,7 @@ end
 #   This will make future mergings MUCH easier. <3
 gem "active_storage_validations"
 gem "authlogic", "6.0.0"
+gem "aws-sdk-s3", require: false
 gem "bluecloth"
 gem "bootsnap", require: false
 gem "data_migrate"

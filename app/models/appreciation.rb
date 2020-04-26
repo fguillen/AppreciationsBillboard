@@ -60,52 +60,7 @@ class Appreciation < ApplicationRecord
   end
 
   def slack_notification
-    blocks = []
-
-    # Title
-    block_title = {
-      type: "section",
-      text: {
-        type: "mrkdwn",
-        text: "A new Appreciation by *#{by.name}* to *#{to_formatted}*:"
-      }
-    }
-
-    # Message
-    block_message = {
-      type: "section",
-      text: {
-        type: "plain_text",
-        text: message
-      }
-    }
-
-    # Development URLs are rejected by Slack
-    if !Rails.env.development? && pic.attached?
-      block_message[:accessory] = {
-        type: "image",
-        image_url: pic_url,
-        alt_text: "Appreciation Header"
-      }
-    end
-
-    # Link
-    block_link = {
-      type: "section",
-      fields: [
-        {
-          type: "mrkdwn",
-          text: "<https://#{APP_CONFIG[:hosts].first}/front/appreciations/#{uuid}|Check it here>"
-        }
-      ]
-    }
-
-    blocks = []
-    blocks << block_title
-    blocks << block_message
-    blocks << block_link
-
-    AppreciationsBillboard.slack_notifier.post blocks: blocks
+    Appreciations::SlackNotificationService.perform(self)
   end
 
   def to_formatted
