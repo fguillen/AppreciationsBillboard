@@ -9,7 +9,7 @@ class Front::AppreciableSessionsControllerTest < ActionController::TestCase
 
   def test_destroy
     delete :destroy
-    assert_redirected_to :front_login
+    assert_redirected_to :root
     assert_not_nil( flash[:notice] )
   end
 end

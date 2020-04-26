@@ -6,6 +6,37 @@ body {
   background-color: #e6eac8;
 }
 
+/* Welcome page */
+.welcome.jumbotron {
+  background-color: #a7a44c69;
+  transform: rotate(-1deg);
+  box-shadow: 3px 7px 9px 1px black;
+  text-align: center;
+}
+
+.welcome.jumbotron img {
+  max-width: 100%;
+}
+
+.welcome.jumbotron .heart {
+  font-size: 10em;
+  margin-top: -0.5em;
+  transform: rotate(10deg);
+}
+
+.welcome.jumbotron .logo {
+  margin-top: -12em;
+  transform: rotate(1deg);
+}
+
+/* Login page */
+.login.jumbotron {
+  background-color: #d677a369;
+  transform: rotate(2deg);
+  box-shadow: 3px 7px 9px 1px black;
+  text-align: center;
+}
+
 
 #appreciation-form .jumbotron {
   background-color: #ecf5ea;
@@ -42,17 +73,17 @@ body {
 /** Appreciation Card **/
 
 .appreciation p.static>span {
-    background-color: #0000002b;
-    padding: 0.5em;
-    margin-left: 0.5em;
+  background-color: #0000002b;
+  padding: 0.5em;
+  margin-left: 0.5em;
 }
 
 .appreciation p.static>span>span {
-    background-color: #00000070;
-    font-size: 1.2em;
-    padding: 0.1em;
-    margin: -1em 0em 1em -1em;
-    color: #ffffff9c;
+  background-color: #00000070;
+  font-size: 1.2em;
+  padding: 0.1em;
+  margin: -1em 0em 1em -1em;
+  color: #ffffff9c;
 }
 
 /* style_snell */
@@ -68,14 +99,14 @@ body {
 
 .appreciation.style_snell .by,
 .appreciation.style_snell .message{
-    transform: rotate(1deg);
-    background-color: #f6b4da;
-    margin-bottom: .75rem;
-    background-color: #ffffffb8;
-    padding: 0.5em;
-    transform: rotate(-2deg);
-    margin: -0.5em 0em 1em 0em;
-    box-shadow: 2px 2px 4px 1px #0000008c;
+  transform: rotate(1deg);
+  background-color: #f6b4da;
+  margin-bottom: .75rem;
+  background-color: #ffffffb8;
+  padding: 0.5em;
+  transform: rotate(-2deg);
+  margin: -0.5em 0em 1em 0em;
+  box-shadow: 2px 2px 4px 1px #0000008c;
 }
 
 .appreciation .bottom.card-link {
@@ -99,13 +130,13 @@ body {
 
 .appreciation.style_fish .by,
 .appreciation.style_fish .message{
-    transform: rotate(1deg);
-    margin-bottom: .75rem;
-    background-color: #ffffffb8;
-    padding: 0.5em;
-    transform: rotate(-2deg);
-    margin: -0.5em 0em 1em 0em;
-    box-shadow: 2px 2px 4px 1px #0000008c;
+  transform: rotate(1deg);
+  margin-bottom: .75rem;
+  background-color: #ffffffb8;
+  padding: 0.5em;
+  transform: rotate(-2deg);
+  margin: -0.5em 0em 1em 0em;
+  box-shadow: 2px 2px 4px 1px #0000008c;
 }
 
 .appreciation.style_fish .message{
@@ -125,12 +156,12 @@ body {
 
 .appreciation.style_waterfly .by,
 .appreciation.style_waterfly .message{
-    margin-bottom: .75rem;
-    background-color: #ffffffc7;
-    padding: 0.5em;
-    transform: rotate(-2deg);
-    margin: -0.5em 0em 1em 0em;
-    box-shadow: 2px 2px 4px 1px #0000008c;
+  margin-bottom: .75rem;
+  background-color: #ffffffc7;
+  padding: 0.5em;
+  transform: rotate(-2deg);
+  margin: -0.5em 0em 1em 0em;
+  box-shadow: 2px 2px 4px 1px #0000008c;
 }
 
 .appreciation.style_waterfly .message{
@@ -150,12 +181,12 @@ body {
 
 .appreciation.style_no_saved .by,
 .appreciation.style_no_saved .message{
-    margin-bottom: .75rem;
-    background-color: #ffffffc7;
-    padding: 0.5em;
-    transform: rotate(-2deg);
-    margin: -0.5em 0em 1em 0em;
-    box-shadow: 2px 2px 4px 1px #0000008c;
+  margin-bottom: .75rem;
+  background-color: #ffffffc7;
+  padding: 0.5em;
+  transform: rotate(-2deg);
+  margin: -0.5em 0em 1em 0em;
+  box-shadow: 2px 2px 4px 1px #0000008c;
 }
 
 .appreciation.style_no_saved .message{
@@ -165,9 +196,9 @@ body {
 /* form */
 
 .appreciation textarea.form-control {
-    background-color: #fff0;
-    border: none;
-    padding: 0;
+  background-color: #fff0;
+  border: none;
+  padding: 0;
 }
 
 .appreciation h5 textarea.form-control {

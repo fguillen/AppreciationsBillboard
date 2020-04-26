@@ -20,6 +20,7 @@ en:
       appreciation:
         by:
           name: Name
+          one: AppreciableUser
           to: To
         created_at: Created at
         message: Message
@@ -100,6 +101,7 @@ en:
       edit_profile: Edit Profile
       login: Login
       logout: Logout
+      new_appreciation: Write a new Appreciation
   views:
     admin_sessions:
       forgot_password:

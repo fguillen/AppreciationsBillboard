@@ -6,7 +6,7 @@ class Appreciations::SlackNotificationServiceTest < ActiveSupport::TestCase
     appreciable_user_to_1 = FactoryBot.create(:appreciable_user, name: "Chet Beahan")
     appreciable_user_to_2 = FactoryBot.create(:appreciable_user, name: "Dot Yost")
 
-    appreciation = FactoryBot.create(:appreciation, uuid: "APPRECIATION_UUID", by: appreciable_user, to: [appreciable_user_to_1, appreciable_user_to_2], message: "MESSAGE")
+    appreciation = FactoryBot.create(:appreciation, uuid: "APPRECIATION_UUID", by: appreciable_user, to: [appreciable_user_to_1, appreciable_user_to_2], message: "MESSAGE LONGER THAN 20 CHARS")
 
     expected_blocks = [
       {
@@ -20,7 +20,7 @@ class Appreciations::SlackNotificationServiceTest < ActiveSupport::TestCase
         "type": "section",
         "text": {
           "type": "plain_text",
-          "text": "MESSAGE"
+          "text": "MESSAGE LONGER THAN 20 CHARS"
         },
         "accessory": {
           "type": "image",

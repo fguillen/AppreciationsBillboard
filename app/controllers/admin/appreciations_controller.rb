@@ -45,7 +45,7 @@ class Admin::AppreciationsController < Admin::BaseController
 protected
 
   def appreciation_params
-    params.require(:appreciation).permit(:by_slug, :message, :pic, to_slugs: [])
+    params.require(:appreciation).permit(:by_slug, :message, :pic, :to_names)
   end
 
 private

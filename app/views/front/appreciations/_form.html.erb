@@ -4,7 +4,7 @@
   <div class="row justify-content-md-center">
     <div class="col-md-6">
       <div class="card appreciation <%= appreciation_custom_style(@appreciation) %>">
-        <% if @appreciation.pic.attached? %>
+        <% if @appreciation.persisted? && @appreciation.pic.attached? %>
           <div class="card-img-top text-center">
             <%= image_tag @appreciation.pic, class: "" %>
           </div>
@@ -35,7 +35,7 @@
 
       <div class="controls text-right">
         <p>
-          <%= f.submit class: "btn btn-outline-dark btn-lg", role: "button"%>
+          <%= f.submit class: "btn btn-outline-primary btn-lg", role: "button"%>
         </p>
       </div>
     </div>

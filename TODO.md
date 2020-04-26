@@ -1,0 +1,2 @@
+- Better Slack notifications formatting: https://api.slack.com/reference/surfaces/formatting#advanced, https://api.slack.com/docs/messages/builder
+- Include images in the Slack notification

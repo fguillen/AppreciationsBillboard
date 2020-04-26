@@ -18,6 +18,11 @@ class Appreciation < ApplicationRecord
   validates :uuid, presence: true, uniqueness: true
   validates :pic, size: { less_than: 2.megabytes }
   validates :pic, dimension: { width: { min: 50 }, height: { min: 50 } }
+  validates :message, length: { in: 20..500 }
+  validates :by, presence: true
+  validate :to_should_not_be_empty
+
+
 
   scope :order_by_recent, -> { order("created_at desc, uuid desc") }
   scope :by, -> (appreciable_user) { where(by: appreciable_user)}
@@ -78,5 +83,10 @@ private
     self.pic.attach(io: File.open(file), filename: File.basename(file))
   end
 
+  def to_should_not_be_empty
+    if to.blank?
+      errors.add(:to, "should have at least one person")
+    end
+  end
 
 end

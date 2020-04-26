@@ -59,8 +59,8 @@ class Admin::AppreciationsControllerTest < ActionController::TestCase
       params: {
         appreciation: {
           by_slug: appreciable_user_1,
-          # to: [appreciable_user_2],
-          message: "Wadus Message"
+          to_names: "#{appreciable_user_1.name}, #{appreciable_user_2.name}",
+          message: "Wadus Message longer than 20 chars"
         }
       }
     )
@@ -68,9 +68,11 @@ class Admin::AppreciationsControllerTest < ActionController::TestCase
     appreciation = Appreciation.last
     assert_redirected_to [:admin, appreciation]
 
-    assert_equal("Wadus Message", appreciation.message)
+    assert_equal("Wadus Message longer than 20 chars", appreciation.message)
     assert_equal(appreciable_user_1, appreciation.by)
-    # assert_equal(appreciable_user_2, appreciation.to.first)
+    assert_equal(2, appreciation.to.size)
+    assert(appreciation.to.include?(appreciable_user_1))
+    assert(appreciation.to.include?(appreciable_user_2))
   end
 
   def test_edit

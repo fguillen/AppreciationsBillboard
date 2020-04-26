@@ -5,6 +5,35 @@ class AppreciationTest < ActiveSupport::TestCase
     assert FactoryBot.create(:appreciation).valid?
   end
 
+  def test_validations
+    appreciation = FactoryBot.build(:appreciation)
+    assert(appreciation.valid?)
+
+    appreciation = FactoryBot.build(:appreciation, message: nil)
+    refute(appreciation.valid?)
+
+    appreciation = FactoryBot.build(:appreciation, message: "")
+    refute(appreciation.valid?)
+
+    appreciation = FactoryBot.build(:appreciation, message: "A" * 6)
+    refute(appreciation.valid?)
+
+    appreciation = FactoryBot.build(:appreciation, message: "A" * 501)
+    refute(appreciation.valid?)
+
+    appreciation = FactoryBot.build(:appreciation, message: "A" * 30)
+    assert(appreciation.valid?)
+
+    appreciation = FactoryBot.build(:appreciation, by: nil)
+    refute(appreciation.valid?)
+
+    # appreciation = FactoryBot.build(:appreciation, to: nil)
+    # refute(appreciation.valid?)
+
+    appreciation = FactoryBot.build(:appreciation, to: [])
+    refute(appreciation.valid?)
+  end
+
   def test_uuid_on_create
     appreciation = FactoryBot.build(:appreciation)
     assert_nil(appreciation.uuid)

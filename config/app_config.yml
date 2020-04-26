@@ -19,6 +19,7 @@ test:
       - TEST_TOKEN_2
   slack_notifier:
     enabled: true
+    debug: false
     webhook_url: https://hooks.slack.com/services/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
 
 development:
@@ -39,6 +40,7 @@ development:
       - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
   slack_notifier:
     enabled: true
+    debug: true
     webhook_url: <%= ENV.fetch('DALIA_SECRET_SLACK_WEBHOOK_URL') %>
 
 staging:
@@ -68,6 +70,7 @@ staging:
       - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
   slack_notifier:
     enabled: true
+    debug: false
     webhook_url: <%= ENV.fetch('DALIA_SECRET_SLACK_WEBHOOK_URL') %>
 
 production:
@@ -97,4 +100,5 @@ production:
       - "<%= ENV.fetch('DALIA_SECRET_APP_TOKEN') %>"
   slack_notifier:
     enabled: true
+    debug: false
     webhook_url: <%= ENV.fetch('DALIA_SECRET_SLACK_WEBHOOK_URL') %>

@@ -2,6 +2,9 @@ class Appreciations::SlackNotificationService < Service
   def perform(appreciation)
     @appreciation = appreciation
     blocks = build_blocks
+
+    log(JSON.pretty_generate(blocks))
+
     AppreciationsBillboard.slack_notifier.post blocks: blocks
   end
 
@@ -54,5 +57,10 @@ private
     blocks << block_link
 
     blocks
+  end
+
+  def log(message)
+    return if !APP_CONFIG[:slack_notifier]["debug"]
+    Rails.logger.debug("[SlackNotificationService] #{message}")
   end
 end

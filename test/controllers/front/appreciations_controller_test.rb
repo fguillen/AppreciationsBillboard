@@ -99,7 +99,7 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
       params: {
         appreciation: {
           to_names: "#{appreciable_user_1.name}, #{appreciable_user_2.name}",
-          message: "Wadus Message"
+          message: "Wadus Message longer than 20 chars"
         }
       }
     )
@@ -107,7 +107,7 @@ class Front::AppreciationsControllerTest < ActionController::TestCase
     appreciation = Appreciation.last
     assert_redirected_to [:front, appreciation]
 
-    assert_equal("Wadus Message", appreciation.message)
+    assert_equal("Wadus Message longer than 20 chars", appreciation.message)
     assert_equal(@appreciable_user, appreciation.by)
     assert_equal(2, appreciation.to.size)
     assert(appreciation.to.include?(appreciable_user_1))

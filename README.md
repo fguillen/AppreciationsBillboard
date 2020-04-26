@@ -2,6 +2,15 @@
 
 Simple application to deliver some appreciation to your colleges
 
+# Set up the development environment
+
+```
+bundle
+rake db:setup
+rake test
+```
+
+
 # Icons
 
 Special thanks to the icons creators
