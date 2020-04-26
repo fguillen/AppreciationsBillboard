@@ -24,6 +24,18 @@ You can set all ENVVARS at once in heroku:
 
     heroku config:push -a appreciationsbillboard -f .env.production -o
 
+## Google Auth
+
+We have to add the callbacks, check here:
+
+- https://asktheteam.daliaresearch.com/t/cant-login-with-google-oauth-on-my-development-environment/425/2
+
+## Amazon S3
+
+We have to create the bucket, the IAM User, the Policy and the Group:
+
+- https://medium.com/@shamnad.p.s/how-to-create-an-s3-bucket-and-aws-access-key-id-and-secret-access-key-for-accessing-it-5653b6e54337
+
 
 # Slack App
 
