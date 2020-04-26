@@ -6,6 +6,12 @@ body {
   background-color: #e6eac8;
 }
 
+@media (max-width: 440px) {
+  .jumbotron .display-4 {
+    font-size: 2.4rem;
+  }
+}
+
 /* Welcome page */
 .welcome.jumbotron {
   background-color: #a7a44c69;

@@ -10,5 +10,5 @@
 - Add images to slack message (it is implemented but not working because the URLs :?)
 - Show better and more appealing error messages and error boxes
 - Show a chars counter when writing the Appreciation messages (20..500)
-
+- Better design
 
