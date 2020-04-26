@@ -20,6 +20,10 @@ Check this post for the special envvar `DATABASE_URL`:
 
 - https://medium.com/@emersonthis/running-rails-with-mysql-on-heroku-4765df033428
 
+You can set all ENVVARS at once in heroku:
+
+    heroku config:push -a appreciationsbillboard -f .env.production -o
+
 
 # Slack App
 
