@@ -46,7 +46,7 @@
 
 <script type="text/javascript">
   $( function() {
-    var availableTags = <%= AppreciableUser.all.map(&:name).to_json.html_safe %>;
+    var availableTags = <%= AppreciableUser.order_by_name.map(&:name).to_json.html_safe %>;
 
     function split( val ) {
       return val.split( /,\s*/ );

@@ -35,4 +35,12 @@ class AppreciableUserTest < ActiveSupport::TestCase
     assert_equal(appreciation, appreciable_user_2.received_appreciations.first)
     assert_equal(appreciation, appreciable_user_3.received_appreciations.first)
   end
+
+  def test_scope_order_by_name
+    appreciable_user_1 = FactoryBot.create(:appreciable_user, name: "Calvario Juan")
+    appreciable_user_2 = FactoryBot.create(:appreciable_user, name: "Arturo Buendia")
+    appreciable_user_3 = FactoryBot.create(:appreciable_user, name: "Benedito Cifuentes")
+
+    assert_primary_keys([appreciable_user_2, appreciable_user_3, appreciable_user_1], AppreciableUser.order_by_name)
+  end
 end
