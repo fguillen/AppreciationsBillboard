@@ -27,5 +27,4 @@ staging:
   password: <%= ENV.fetch('DALIA_SECRET_RAILS_DB_PASSWORD') %>
 
 production:
-  production:
-    url: <%= ENV["DATABASE_URL"] %>
+  url: <%= ENV["DATABASE_URL"] %>
