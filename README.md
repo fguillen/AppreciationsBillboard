@@ -51,3 +51,10 @@ We have to create the bucket, the IAM User, the Policy and the Group:
 The notifications are sent via this Slack App:
 
 - https://api.slack.com/apps/A012GPEULUD/general?
+
+Here there is explanation of how to set up a webhook:
+
+- https://github.com/stevenosloan/slack-notifier
+
+
+

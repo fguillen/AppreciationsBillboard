@@ -11,4 +11,6 @@
 - Show better and more appealing error messages and error boxes
 - Show a chars counter when writing the Appreciation messages (20..500)
 - Better design
-
+- Correct wording and texts
+- Send weekly email to the team
+- Public interface to put it in the Kitchen Screes
