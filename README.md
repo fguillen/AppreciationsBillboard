@@ -1,5 +1,7 @@
 # AppreciationsBillboard
 
+![screenshot](https://github.com/fguillen/AppreciationsBillboard/blob/master/etc/art/Screenshot%202021-07-21%20at%2012.49.01.png)
+
 Simple application to deliver some appreciation to your colleges
 
 # Set up the development environment
