@@ -1,6 +1,6 @@
 # AppreciationsBillboard
 
-![screenshot](https://github.com/fguillen/AppreciationsBillboard/blob/master/etc/art/Screenshot%202021-07-21%20at%2012.49.01.png)
+![screenshot](https://github.com/fguillen/AppreciationsBillboard/blob/master/etc/art/appreciations_billboard.png)
 
 Simple application to deliver some appreciation to your colleges
 
